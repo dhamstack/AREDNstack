@@ -7,7 +7,11 @@
   - AREDN software distribution (https://youtu.be/vbV3JdPPBZ4 )
   - Alert Messages (https://youtu.be/jURFNAHxBCM )
 - Pat Winlink (https://youtu.be/_VhmhJVo3jM )
-- PBX (Freeware or comercial license?)
+- PBX (Freeware or comercial license? Lot of knowledge in 3CX PBX)
 - Address Book
 - NTP server
 - DuckDNS Client
+- Rocket.chat (Webbased, Android/ios, voice, video, chat, collaboration platform)
+- Element/Matrix "for confidential material" (Webbased, Android/ios, voice, video, chat, collaboration platform)
+- Webservices for presentation (Landingpage, dashboard, publish alerts)
+- Phonebook/directory for usage in Deskphone like Cisco, Yealink ... 
