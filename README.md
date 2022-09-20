@@ -7,7 +7,7 @@
   - AREDN software distribution (https://youtu.be/vbV3JdPPBZ4 )
   - Alert Messages (https://youtu.be/jURFNAHxBCM )
 - Pat Winlink (https://youtu.be/_VhmhJVo3jM )
-- PBX
+- PBX (Freeware or comercial license?)
 - Address Book
 - NTP server
 - DuckDNS Client
