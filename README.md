@@ -13,5 +13,5 @@
 - DuckDNS Client
 - Rocket.chat (Webbased, Android/ios, voice, video, chat, collaboration platform)
 - Element/Matrix "for confidential material" (Webbased, Android/ios, voice, video, chat, collaboration platform)
-- Webservices for presentation (Landingpage, dashboard, publish alerts)
+- Webservices for presentation (Landingpage, dashboard, publish alerts, like a intranet)
 - Phonebook/directory for usage in Deskphone like Cisco, Yealink ... 
