@@ -10,3 +10,4 @@
 - PBX
 - Address Book
 - NTP server
+- DuckDNS Client
