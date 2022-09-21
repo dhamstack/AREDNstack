@@ -16,3 +16,4 @@
 - Webservices for presentation (Landingpage, dashboard, publish alerts, like a intranet)
 - Phonebook/directory for usage in Deskphone like Cisco, Yealink ... 
 - Monitoring/dashboard for Nodes and Phones. Like uptime Kuma  (https://uptime.kuma.pet/)
+- NGINX Loadbalancer, Proxy (loadbalancing webservices)
