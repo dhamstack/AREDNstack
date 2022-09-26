@@ -1,0 +1,15 @@
+Use of a Remote Phonebook in AREDN Network. (Examp. Yealink)
+
+Yealink have a feature to use a Remote Phonebook
+
+These can configured in The Webgui of the Yealink IP Phone. Here the example of ah Yealink DECT Base 70B.
+
+The screenshot desribe the configuration.
+
+URL for the Remobe Phonebook:
+tftp://hb-aredn-srvt01.local.mesh/phonebook.xml
+Display Name:
+AREDN-CH Book
+
+Update Time Interval:
+min 3600 max 1296000 -> when the Phonebook is offline, the Directorey is cached on the phone, but after the time the function is unavailable!
