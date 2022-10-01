@@ -56,7 +56,6 @@ Append after the star-line
 *************************************
 
 config dnsmasq
-	...
 	option 'enable_tftp' '1'
  	option 'tftp_root' '/srv/tftp'
 
