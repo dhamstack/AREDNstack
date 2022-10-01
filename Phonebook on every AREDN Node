@@ -1,4 +1,4 @@
--HB9HDH-
+-HB9HDH - 1.10.2022
 
 A way to distribute a AREDN Phonebook with entrys of extensions (PBX or direct IP Calling) ist enable tftp service on AREDN Router - in dnsmasq
 
@@ -12,12 +12,21 @@ The benefit ist, when the AREDN Node with the IP Phone ist partitial connected, 
 Manual Installation procedure:
 
 Create folder :
-/srv/tftp
+cd /
+mkdir /srv
+cd srv
+mkdir tftp
+
 put the phonebook.xml in /srv/tftp
 
 Enable tftp service in dnsmasq:
 
-in /etc/config/dhcp
+Edit  /etc/config/dhcp
+
+vi /etc/config/dhcp
+
+Navigate to end of configfile. Press "Insert" Key to edit/Insert Lines
+Append / Paste 
 
 ----------------------------------------------------------------------
 config dhcp
@@ -37,12 +46,27 @@ config dhcp
 	option interface 'wifi'
 	option ignore '1'
 
+
+
+
+
+
+
+Append after the star-line
+*************************************
+
 config dnsmasq
 	...
 	option 'enable_tftp' '1'
  	option 'tftp_root' '/srv/tftp'
-  
+
+**************************************
+
   ---------------------------------------------------------------------
+  
+  Press "ESC" key and then :
+  with wq write and exit configuration
+  
   
  to activate the service reboot node or use command:  service dnsmasq restart
  
