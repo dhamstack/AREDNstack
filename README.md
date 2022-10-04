@@ -21,3 +21,5 @@
 
 Done:
 - NGINX Loadbalancer, Proxy / AREDN Firmwarerepository(loadbalancing webservices)
+- Remotephonebook (Yealink) is located on a Meshnode, activated tftp - sync on Phone work
+- Routine for distribute Source XML Phonebook in whole Mesh with peridical synchjob (only on change)
