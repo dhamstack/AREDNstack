@@ -65,8 +65,12 @@ config dnsmasq
   
   Press "ESC" key and then :
   with wq write and exit configuration
-  
-  
- to activate the service reboot node or use command:  service dnsmasq restart
+    
+ To activate the service reboot node or use command:  service dnsmasq restart
+ 
+ 
+ Ongoing:
+ 
+ Sync of Source XML, cronjob description for meshrouter (synchjob with check of changes) and a Routine to Install all nessesery Files, Configs, Jobs - is in work
  
  
