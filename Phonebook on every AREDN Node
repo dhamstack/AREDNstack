@@ -5,7 +5,10 @@ A way to distribute a AREDN Phonebook with entrys of extensions (PBX or direct I
 in these szenario is possible use one and the same url in the IP Phone. (tftp://localnode.local.mesh/phonebook.xml) 
 i will try to sync the phonebook.xml in the mesh network. 
 The benefit ist, when the AREDN Node with the IP Phone ist partitial connected, you can use the remotephonedirectory with the direct ip entrys.
-
+Syntax for direct IP calling:
+extension - Phonenumber@fqdn
+Example:
+123456@hostname_of_phone.local.mesh
 
 
 
