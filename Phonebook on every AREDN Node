@@ -76,4 +76,15 @@ config dnsmasq
  
  Sync of Source XML, cronjob description for meshrouter (synchjob with check of changes) and a Routine to Install all nessesery Files, Configs, Jobs - is in work
  
+ Periodical sync can defined as a cronjob:
+ 
+ crontab -e
+
+*/60 * * * * curl --output  /srv/tftp/phonebook.xml -O http://hb-aredn-srvt01.local.mesh/phonebook/phonebook.xml
+#---------------------------------------------------------------------------------------------------------------
+
+This will execute every 60min a synch and place the phonebook in /srv/tftp/phonebook.xml  on the (localhost.local.mesh) or on the node, that the Yealink is connected.
+
+
+ 
  
