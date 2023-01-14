@@ -8,3 +8,11 @@ The command / Script install all nessesary's Folders, cronjob, and TFTP Service.
 After installation the router reboot automaticly
 
 
+Now you can configure the Remotephonebook on your Yealink Webinterface.
+Create a new Remotephonebook and use following URL: tftp://localnode.local.mesh/phonebook.xml
+
+Now you have a Phonebook, that wil replicate every 30min's from the source over the meshnetwork.
+In these Phonebook are directdial Entrys implemented they can be used make calls without the PBX -directly phone 2 phone.
+
+But i can bee nessesary to make a portforward on your AREDN Router for the Yealink Phone (for P2P calls)
+I will check that to implement these in the installscript in future.
