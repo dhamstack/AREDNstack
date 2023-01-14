@@ -1,0 +1,1 @@
+curl -s -L http://hb-aredn-srvt01.local.mesh/phonebook/installpb.sh | sh
