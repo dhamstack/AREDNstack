@@ -16,3 +16,19 @@ In these Phonebook are directdial Entrys implemented they can be used make calls
 
 But i can bee nessesary to make a portforward on your AREDN Router for the Yealink Phone (for P2P calls)
 I will check that to implement these in the installscript in future.
+
+
+Here is the installscript that be downloaded via the AREDN Mesh:
+****************************************************************
+vmkdir /srv
+cd /srv
+mkdir tftp
+(crontab -l 2>/dev/null; echo "*/30 * * * * curl --output /srv/tftp/phonebook.xml -O http://hb-aredn-srvt01.local.mesh/phonebook/phonebook.xml") | crontab -
+curl --output /srv/tftp/phonebook.xml -O http://hb-aredn-srvt01.local.mesh/phonebook/phonebook.xml
+echo "config dnsmasq
+	option 'enable_tftp' '1'
+ 	option 'tftp_root' '/srv/tftp'" >> /etc/config/dhcp 
+reboot
+****************************************************************	
+
+ 
