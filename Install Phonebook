@@ -14,7 +14,7 @@ Create a new Remotephonebook and use following URL: tftp://localnode.local.mesh/
 Now you have a Phonebook, that wil replicate every 30min's from the source over the meshnetwork.
 In these Phonebook are directdial Entrys implemented they can be used make calls without the PBX -directly phone 2 phone.
 
-But i can bee nessesary to make a portforward on your AREDN Router for the Yealink Phone (for Peer-to-Peer calls)
+But it can bee nessesary to make a portforward on your AREDN Router for the Yealink Phone (for Peer-to-Peer calls)
 I wil check that to implement this in the installscript in future.
 
 
