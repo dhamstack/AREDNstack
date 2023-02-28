@@ -17,7 +17,7 @@ exit with ctrl-C
 Create a portforward on your AREDN Router for the Yealink Phone
 
 Now you can configure the Remotephonebook on your Yealink Webinterface.
-![Directory](Remote_Directory.png)
+![Directory](Pictures/Remote_Directory.png)
 
 URL: tftp://localnode.local.mesh/phonebook.xml
 
