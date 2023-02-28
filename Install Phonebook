@@ -4,18 +4,27 @@ Paste following command in your shell
 curl -s -L http://hb-aredn-srvt01.local.mesh/phonebook/installpb.sh | sh
 Press Enter
 
-The command / Script install all nessesary's Folders, cronjob, and TFTP Service.
-After installation the router reboots automaticly
+This command/Script installs all nessesary's Folders, cronjob, and TFTP Service.
+After installation the router reboots automaticly. Wait up to 5 minutes.
 
+enter:
+crontab -e
+check if you only have one line like that (delete one otherwise):
+*/30 * * * * curl --output /srv/tftp/phonebook.xml -O http://hb-aredn-srvt01.local.mesh/phonebook/phonebook.xml
+
+exit with ctrl-C
+
+Create a portforward on your AREDN Router for the Yealink Phone
 
 Now you can configure the Remotephonebook on your Yealink Webinterface.
-Create a new Remotephonebook and use following URL: tftp://localnode.local.mesh/phonebook.xml
+![Directory](Remote_Directory.png)
 
-Now you have a Phonebook, that wil replicate every 30min's from the source over the meshnetwork.
-In these Phonebook are directdial Entrys implemented they can be used make calls without the PBX -directly phone 2 phone.
+URL: tftp://localnode.local.mesh/phonebook.xml
 
-But it can bee nessesary to make a portforward on your AREDN Router for the Yealink Phone (for Peer-to-Peer calls)
-I wil check that to implement this in the installscript in future.
+Now you have a Phonebook, that wil replicate every 30min's from the source over the mesh network.
+In this phonebook you find two entries for each name:
+- A PBX number (only works when the PBX is reachable and creates additional traffic on the network)
+- A longr direct entry (works as long as your counterpart is reachable and creates less traffic)
 
 
 Here is the installscript that be downloaded via the AREDN Mesh:
@@ -26,9 +35,8 @@ mkdir tftp
 (crontab -l 2>/dev/null; echo "*/30 * * * * curl --output /srv/tftp/phonebook.xml -O http://hb-aredn-srvt01.local.mesh/phonebook/phonebook.xml") | crontab -
 curl --output /srv/tftp/phonebook.xml -O http://hb-aredn-srvt01.local.mesh/phonebook/phonebook.xml
 echo "config dnsmasq
-	option 'enable_tftp' '1'
- 	option 'tftp_root' '/srv/tftp'" >> /etc/config/dhcp 
+               option 'enable_tftp' '1'
+              option 'tftp_root' '/srv/tftp'" >> /etc/config/dhcp 
 reboot
-****************************************************************	
+****************************************************************     
 
- 
