@@ -1,5 +1,5 @@
 #!/bin/sh
-# $Author: Daniel HB9HFM & Patrick HB9HDH $
+# $Author: Patrick HB9HDH, Daniel HB9HFM $
 # $Date: 2023/03/31 22:46:57 $
 # $Revision: 1.1 $
 # $Source: checkTFTPService-v10.sh,v $
