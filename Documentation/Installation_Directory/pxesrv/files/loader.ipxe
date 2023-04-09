@@ -1,0 +1,2 @@
+#!ipxe
+chain --autofree macs/${mac:hexraw}.ipxe
