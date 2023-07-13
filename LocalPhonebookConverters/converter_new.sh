@@ -1,6 +1,6 @@
 #!/bin/ash
 
-input_file="Phonebook.csv"
+input_file="AREDN_Phonebook_CH - Sheet1.csv"
 output_file1="Yealink.xml"
 output_file2="output_file2.xml"
 output_file3="output_file3.xml"
@@ -12,7 +12,7 @@ if [ ! -f "$input_file" ]; then
 fi
 
 # Get the modification time of the input file
-input_file_mtime=$(date -r Phonebook.csv  +%s)
+input_file_mtime=$(date -r "$input_file"  +%s)
 
 # Check if the modification time is empty (file not found or ls command not available)
 if [ -z "$input_file_mtime" ]; then
@@ -25,8 +25,8 @@ current_time=$(date +"%Y-%m-%d %H:%M:%S")
 
 # Convert modification times to Unix timestamps for comparison
 current_time=$(date -d "$current_time" +"%s")
-echo "$current_time"
 echo "$input_file_mtime"
+echo "$current_time"
 
 
 # Calculate the time difference in seconds
@@ -46,7 +46,7 @@ echo "<CiscoIPPhoneDirectory>" > "$output_file2"
 echo "<GigasetIPPhoneDirectory>" > "$output_file3"
 
 # Read the input file line by line
-   while IFS=";" read -r first_name name callsign ip_address telephone; do
+   while IFS="," read -r first_name name callsign ip_address telephone; do
     line_number=$((line_number+1))
     
     # Skip the header line
