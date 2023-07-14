@@ -1,9 +1,9 @@
 #!/bin/ash
 
 input_file="AREDN_Phonebook_CH - Sheet1.csv"
-output_file1="Yealink.xml"
-output_file2="output_file2.xml"
-output_file3="output_file3.xml"
+output_file1="/www/yealink.xml"
+output_file2="/www/output_file2.xml"
+output_file3="/www/output_file3.xml"
 
 # Check if the input file exists
 if [ ! -f "$input_file" ]; then
