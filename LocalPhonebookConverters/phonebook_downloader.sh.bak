@@ -15,8 +15,8 @@ echo "<GigasetIPPhoneDirectory>" > "$output_file3"
 
 cd /arednstack/phonebook
 
-curl -o phonebook_original.csv "$PHONEBOOK_URL"
-input_file="phonebook_original.csv"
+curl -o phonebook_original "$PHONEBOOK_URL"
+input_file="phonebook_original"
 echo "$PHONEBOOK_URL downloaded"
 tail "$input_file"
 
