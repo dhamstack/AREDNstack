@@ -1,49 +1,24 @@
 #!/bin/ash
+# $Author: Andreas HB9BLA $
+# $Date: 2023/07/19 $
+# $Revision: 2.0 $
 
-input_file="AREDN_Phonebook_CH - Sheet1.csv"
+PHONEBOOK_URL="http://10.55.47.92/AREDN_Phonebook.csv"
 output_file1="/www/yealink.xml"
-output_file2="/www/output_file2.xml"
+output_file2="/www/cisco.xml"
 output_file3="/www/output_file3.xml"
-
-# Check if the input file exists
-if [ ! -f "$input_file" ]; then
-    echo "Input file not found: $input_file"
-    exit 1
-fi
-
-# Get the modification time of the input file
-input_file_mtime=$(date -r "$input_file"  +%s)
-
-# Check if the modification time is empty (file not found or ls command not available)
-if [ -z "$input_file_mtime" ]; then
-    echo "Unable to retrieve input file modification time. Skipping script execution."
-    exit 0
-fi
-
-# Get the current time
-current_time=$(date +"%Y-%m-%d %H:%M:%S")
-
-# Convert modification times to Unix timestamps for comparison
-current_time=$(date -d "$current_time" +"%s")
-echo "$input_file_mtime"
-echo "$current_time"
-
-
-# Calculate the time difference in seconds
-time_diff=$((current_time - input_file_mtime))
-
-echo "$time_diff"
-
-# Check if the input file is older than 10 minutes (600 seconds)
-if [ "$time_diff" -gt 600 ]; then
-    echo "Input file is older than 10 minutes. Skipping script execution."
-    exit 0
-fi
 
 #Create the output file and write the initial XML structure
 echo "<YealinkIPPhoneDirectory>" > "$output_file1"
 echo "<CiscoIPPhoneDirectory>" > "$output_file2"
 echo "<GigasetIPPhoneDirectory>" > "$output_file3"
+
+cd /arednstack/phonebook
+
+curl -o phonebook_original "$PHONEBOOK_URL"
+input_file="phonebook_original"
+echo "$PHONEBOOK_URL downloaded"
+tail "$input_file"
 
 # Read the input file line by line
    while IFS="," read -r first_name name callsign ip_address telephone; do
@@ -78,5 +53,7 @@ echo "</YealinkIPPhoneDirectory>" >> "$output_file1"
 echo "</CiscoIPPhoneDirectory>" >> "$output_file2"
 echo "</GigasetIPPhoneDirectory>" >> "$output_file3"
 
-echo "Conversion completed. Output file: $output_file"
+echo "Conversion completed. Output file: $output_file1"
+echo "Conversion completed. Output file: $output_file2"
+echo "Conversion completed. Output file: $output_file3"
 
