@@ -32,6 +32,7 @@ function LOGInformation ()
   cd /arednstack/phonebook
   curl -o phonebook_downloader.sh "$DOWNLOADER_URL"
   chmod +x phonebook_downloader.sh
+  ./phonebook_downloader.sh
 
 
 # cronjob test (installroutine)
