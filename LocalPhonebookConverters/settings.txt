@@ -1,0 +1,4 @@
+# Time when the phonebook is updated
+
+crontab_hour="23"
+crontab_min="45"

@@ -1,0 +1,5 @@
+# Time when the phonebook is updated
+
+LOCATION_URL="http://10.148.253.11"
+crontab_hour="23"
+crontab_min="45"

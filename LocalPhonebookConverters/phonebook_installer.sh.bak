@@ -6,8 +6,29 @@
 #
 
 # Define the URL variable
-INSTALLER_URL="http://10.55.47.92/phonebook_installer.sh"
-DOWNLOADER_URL="http://10.55.47.92/phonebook_downloader.sh"
+#LOCATION_URL="http://hb9edi-apu-1.local.mesh"
+LOCATION_URL="http://10.148.253.11"
+INSTALLER_URL="/phonebook_installer.sh"
+DOWNLOADER_URL="$LOCATION_URL/phonebook_downloader.sh"
+SETTINGS_URL="$LOCATION_URL/settings.txt"
+
+echo "$SETTINGS_URL"
+echo "$DOWNLOADER_URL"
+
+  echo "Download settings.txt"
+  if [ ! -f "settings.txt" ]; then
+	curl -o settings.txt "$SETTINGS_URL"
+	echo "settings.txt installed"
+  else
+	echo "settings.txt file already exists, skipping installation."
+fi
+
+  # Read Setttings File
+  crontab_hour=$(grep 'crontab_hour=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
+  crontab_min=$(grep 'crontab_min=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
+  echo "The crontab hour is: $crontab_hour"
+  echo "The crontab minute is: $crontab_min"
+  echo
 
 
 function LOGInformation ()
@@ -22,24 +43,36 @@ function LOGInformation ()
 # Create directory for AREDN phonebook files
   if [ -d "/arednstack/phonebook" ]
   then
-   echo "/arednstack/phonebook exist..."
+   echo "Directory /arednstack/phonebook exist..."
+   echo
    else
    mkdir /arednstack/
    cd /arednstack
    mkdir phonebook
    echo "/arednstack/phonebook created"
+   echo
   fi
   cd /arednstack/phonebook
+  
+  echo "Install phonebook_downloader"  
+  # curl -o phonebook_installer.sh "$LOCATION_URL$INSTALLER_URL"
+  chmod +x phonebook_installer.sh
+  echo "phonebook_downloader installed"
+  echo
+  
+  echo "Download and execute phonebook_downloader"
   curl -o phonebook_downloader.sh "$DOWNLOADER_URL"
   chmod +x phonebook_downloader.sh
   ./phonebook_downloader.sh
+  echo "phonebook_downloader installed and executed"
+  echo
 
 
-# cronjob test (installroutine)
+# cronjob test (installroutine). It runs every day at
 {
     if ! crontab -l | grep -q "${INSTALLER_URL}"; then
         echo "Install cronjob for installer"
-        (crontab -l 2>/dev/null; echo "*/60 * * * * curl -s -L ${INSTALLER_URL} | sh") | crontab -
+        (crontab -l 2>/dev/null; echo "$crontab_min $crontab_hour * * * curl -s -L ${INSTALLER_URL} | sh") | crontab -
     else
         echo "cronjob entry exists for installer"
     fi

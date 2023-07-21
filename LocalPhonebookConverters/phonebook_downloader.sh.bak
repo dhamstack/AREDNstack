@@ -3,11 +3,7 @@
 # $Date: 2023/07/19 $
 # $Revision: 2.0 $
 
-
-#LOCATION_URL="http://hb9edi-apu-1.local.mesh"
-LOCATION_URL="http://10.148.253.11"
-
-PHONEBOOK_URL="$LOCATION_URL/AREDN_Phonebook.csv"
+PHONEBOOK_URL="http://10.55.47.92/AREDN_Phonebook.csv"
 output_file1="/www/yealink.xml"
 output_file2="/www/cisco.xml"
 output_file3="/www/output_file3.xml"
