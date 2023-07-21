@@ -1,4 +1,6 @@
 # Time when the phonebook is updated
-
-crontab_hour="23"
-crontab_min="45"
+LOCATION_URL=http://10.55.47.91
+download_directory_direct=YES
+download_directory_pbx=YES
+crontab_hour=23
+crontab_min=45

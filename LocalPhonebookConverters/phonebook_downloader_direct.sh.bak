@@ -5,12 +5,15 @@
 
 
 #LOCATION_URL="http://hb9edi-apu-1.local.mesh"
-LOCATION_URL="http://10.148.253.11"
+#LOCATION_URL="http://10.148.253.11"
+LOCATION_URL=$(grep 'LOCATION_URL=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
+
+echo "Location URL $LOCATION_URL"
 
 PHONEBOOK_URL="$LOCATION_URL/AREDN_Phonebook.csv"
-output_file1="/www/yealink.xml"
-output_file2="/www/cisco.xml"
-output_file3="/www/output_file3.xml"
+output_file1="/www/yealink_direct.xml"
+output_file2="/www/cisco_direct.xml"
+output_file3="/www/output_file3_direct.xml"
 
 #Create the output file and write the initial XML structure
 echo "<YealinkIPPhoneDirectory>" > "$output_file1"
@@ -25,7 +28,7 @@ echo "$PHONEBOOK_URL downloaded"
 tail "$input_file"
 
 # Read the input file line by line
-   while IFS="," read -r first_name name callsign ip_address telephone; do
+   while IFS="," read -r first_name name callsign ip_address telephone# email club mobile# street City; do
     line_number=$((line_number+1))
     
     # Skip the header line
@@ -42,7 +45,7 @@ tail "$input_file"
 	    # Write the XML structure for file2
     echo "    <DirectoryEntry>" >> "$output_file2"
     echo "        <Name>$name $first_name $callsign</Name>" >> "$output_file2"
-    echo "        <Telephone>$telephone</Telephone>" >> "$output_file2"
+    echo "        <Telephone>$ip_address</Telephone>" >> "$output_file2"
     echo "    </DirectoryEntry>" >> "$output_file2"
 	
 	    # Write the XML structure for file3

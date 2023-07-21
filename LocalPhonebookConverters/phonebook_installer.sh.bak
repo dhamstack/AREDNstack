@@ -7,27 +7,38 @@
 
 # Define the URL variable
 #LOCATION_URL="http://hb9edi-apu-1.local.mesh"
-LOCATION_URL="http://10.148.253.11"
+#LOCATION_URL="http://10.148.253.11"
+LOCATION_URL="http://10.55.47.91"
 INSTALLER_URL="/phonebook_installer.sh"
-DOWNLOADER_URL="$LOCATION_URL/phonebook_downloader.sh"
-SETTINGS_URL="$LOCATION_URL/settings.txt"
+DIRECT_DOWNLOADER_URL="/phonebook_downloader_direct.sh"
+PBX_DOWNLOADER_URL="/phonebook_downloader_pbx.sh"
+SETTINGS_URL="/settings.txt"
 
-echo "$SETTINGS_URL"
-echo "$DOWNLOADER_URL"
+echo "$LOCATION_URL"
 
   echo "Download settings.txt"
   if [ ! -f "settings.txt" ]; then
-	curl -o settings.txt "$SETTINGS_URL"
+	curl -o settings.txt "$LOCATION_URL$SETTINGS_URL"
 	echo "settings.txt installed"
   else
 	echo "settings.txt file already exists, skipping installation."
 fi
 
   # Read Setttings File
+  directory_direct=$(grep 'download_directory_direct=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
+  directory_direct="${directory_direct:0:3}"
+  directory_pbx=$(grep 'download_directory_pbx=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
+  directory_pbx="${directory_pbx:0:3}"
   crontab_hour=$(grep 'crontab_hour=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
   crontab_min=$(grep 'crontab_min=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
+  crontab_hour=$((crontab_hour))
+  crontab_min=$((crontab_min))
+  
+  echo "Length: ${#directory_direct}"
+  
   echo "The crontab hour is: $crontab_hour"
   echo "The crontab minute is: $crontab_min"
+  echo "directory_direct is: $directory_direct"
   echo
 
 
@@ -54,18 +65,49 @@ function LOGInformation ()
   fi
   cd /arednstack/phonebook
   
-  echo "Install phonebook_downloader"  
-  # curl -o phonebook_installer.sh "$LOCATION_URL$INSTALLER_URL"
+  
+  echo "Install $LOCATION_URL$DIRECT_DOWNLOADER_URL"  
+  #curl -o phonebook_installer.sh "$LOCATION_URL$DIRECT_DOWNLOADER_URL"
   chmod +x phonebook_installer.sh
-  echo "phonebook_downloader installed"
+  echo "phonebook_installer installed"
   echo
   
-  echo "Download and execute phonebook_downloader"
-  curl -o phonebook_downloader.sh "$DOWNLOADER_URL"
-  chmod +x phonebook_downloader.sh
-  ./phonebook_downloader.sh
-  echo "phonebook_downloader installed and executed"
+  echo "Install $LOCATION_URL$DIRECT_DOWNLOADER_URL" 
+  curl -o phonebook_downloader_direct.sh "$LOCATION_URL$DIRECT_DOWNLOADER_URL"
+  chmod +x phonebook_installer_direct.sh
+  echo "phonebook_installer_direct installed"
   echo
+  
+  echo "Install $LOCATION_URL$PBX_DOWNLOADER_URL" 
+  curl -o phonebook_downloader_pbx.sh "$LOCATION_URL$PBX_DOWNLOADER_URL"
+  chmod +x phonebook_installer_pbx.sh
+  echo "phonebook_installer_pbx installed"
+  echo
+  
+  echo "directory_direct is: $directory_direct"
+  if [ $directory_direct == "YES" ]; then  
+	echo "Download and execute phonebook_downloader_direct"
+	curl -o phonebook_downloader_direct.sh "$LOCATION_URL$DIRECT_DOWNLOADER_URL"
+	chmod +x phonebook_downloader_direct.sh
+	./phonebook_downloader_direct.sh
+	echo "phonebook_downloader_direct installed and executed"
+	echo
+  else
+	echo "phonebook_downloader_direct NOT installed"
+	echo
+  fi
+  
+  if [ $directory_pbx == "YES" ]; then
+	echo "Download and execute phonebook_downloader_pbx"
+	curl -o phonebook_downloader_pbx.sh "$LOCATION_URL$PBX_DOWNLOADER_URL"
+	chmod +x phonebook_downloader_pbx.sh
+	./phonebook_downloader_pbx.sh
+	echo "phonebook_downloader_pbx installed and executed"
+	echo
+ else
+	echo "phonebook_downloader_pbx NOT installed"
+	echo
+ fi
 
 
 # cronjob test (installroutine). It runs every day at
@@ -75,6 +117,7 @@ function LOGInformation ()
         (crontab -l 2>/dev/null; echo "$crontab_min $crontab_hour * * * curl -s -L ${INSTALLER_URL} | sh") | crontab -
     else
         echo "cronjob entry exists for installer"
+		echo
     fi
 }
 
