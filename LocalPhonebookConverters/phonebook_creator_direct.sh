@@ -1,7 +1,7 @@
 #!/bin/ash
 # $Author: Andreas HB9BLA $
-# $Date: 2023/07/19 $
-# $Revision: 2.0 $
+# $Date: 2023/07/22 $
+# $Revision: 2.1 $
 
 echo
 echo "Start PHONEBOOK_CREATOR_PBX........"

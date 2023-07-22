@@ -1,7 +1,7 @@
 #!/bin/sh
 # $Author: Patrick HB9HDH & Daniel HB9HFM & Andreas HB9BLA $
-# $Date: 2023/07/19 $
-# $Revision: 2.0 $
+# $Date: 2023/07/22 $
+# $Revision: 2.1 $
 # $Source: checkTFTPService-v10.sh,v $
 #
 
