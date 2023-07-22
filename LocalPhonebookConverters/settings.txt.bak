@@ -1,9 +1,0 @@
-# Time when the phonebook is updated
-LOCATION_URL=http://10.55.47.91
-download_directory_direct=YES
-download_directory_pbx=YES
-create_yealink=YES
-create_cisco=YES
-create_noname=NO
-crontab_hour=23
-crontab_min=45
