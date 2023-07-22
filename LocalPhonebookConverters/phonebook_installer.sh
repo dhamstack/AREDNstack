@@ -20,10 +20,25 @@ echo
 echo "PHONEBOOK INSTALLATION STARTS............."
 echo "Download server address: $LOCATION_URL"
 
+# Create directory for AREDN phonebook files
+  if [ -d "/arednstack/phonebook" ]
+  then
+   echo "Directory /arednstack/phonebook exist..."
+   echo
+   else
+   mkdir /arednstack/
+   cd /arednstack
+   mkdir phonebook
+   echo "/arednstack/phonebook created"
+   echo
+  fi
+  cd /arednstack/phonebook
+  
+
   echo
   echo "DOWNLOAD $SETTINGS_FILE_NAME"
-  if [ ! -f "settings.txt" ]; then
-	curl -o settings.txt "$LOCATION_URL$SETTINGS_FILE_NAME"
+  if [ ! -f "/arednstack/phonebook/settings.txt" ]; then
+	curl -o /arednstack/phonebook/settings.txt "$LOCATION_URL$SETTINGS_FILE_NAME"
 	echo "$SETTINGS_FILE_NAME downloaded"
   else
 	echo "$SETTINGS_FILE_NAME file already exists, skipping download"
@@ -62,21 +77,6 @@ function LOGInformation ()
 		/bin/echo "-`/bin/date +%d.%m.%Y-%H:%M:%S`-: $1" | ${LOG}
 	fi
 }
-
-# Create directory for AREDN phonebook files
-  if [ -d "/arednstack/phonebook" ]
-  then
-   echo "Directory /arednstack/phonebook exist..."
-   echo
-   else
-   mkdir /arednstack/
-   cd /arednstack
-   mkdir phonebook
-   echo "/arednstack/phonebook created"
-   echo
-  fi
-  cd /arednstack/phonebook
-  
   
   echo "Download and install $INSTALLER_URL"  
   #curl -o phonebook_installer.sh "$LOCATION_URL$INSTALLER_URL"
