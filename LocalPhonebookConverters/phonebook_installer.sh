@@ -6,40 +6,52 @@
 #
 
 # Define the URL variable
-#LOCATION_URL="http://hb9edi-apu-1.local.mesh"
-#LOCATION_URL="http://10.148.253.11"
-LOCATION_URL="http://10.55.47.91"
-INSTALLER_URL="/phonebook_installer.sh"
-DIRECT_DOWNLOADER_URL="/phonebook_downloader_direct.sh"
-PBX_DOWNLOADER_URL="/phonebook_downloader_pbx.sh"
-SETTINGS_URL="/settings.txt"
+#LOCATION_URL="http://hb9edi-apu-1.local.mesh/"
+#LOCATION_URL="http://10.148.253.11/"
+LOCATION_URL="http://10.55.47.91/"
+INSTALLER_URL="phonebook_installer.sh"
+DIRECT_CREATOR_FILE_NAME="phonebook_creator_direct.sh"
+PBX_CREATOR_FILE_NAME="phonebook_creator_pbx.sh"
+SETTINGS_FILE_NAME="settings.txt"
+echo
+echo
+echo
+echo
+echo "PHONEBOOK INSTALLATION STARTS............."
+echo "Download server address: $LOCATION_URL"
 
-echo "$LOCATION_URL"
-
-  echo "Download settings.txt"
+  echo
+  echo "DOWNLOAD $SETTINGS_FILE_NAME"
   if [ ! -f "settings.txt" ]; then
-	curl -o settings.txt "$LOCATION_URL$SETTINGS_URL"
-	echo "settings.txt installed"
+	curl -o settings.txt "$LOCATION_URL$SETTINGS_FILE_NAME"
+	echo "$SETTINGS_FILE_NAME downloaded"
   else
-	echo "settings.txt file already exists, skipping installation."
+	echo "$SETTINGS_FILE_NAME file already exists, skipping download"
 fi
+echo
+echo
+
+# Remove all phonebook files from the www directory
+echo "Remove all phonebook files from the www directory"
+rm /www/phonebook*.*
+echo
+echo
+
 
   # Read Setttings File
-  directory_direct=$(grep 'download_directory_direct=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
-  directory_direct="${directory_direct:0:3}"
-  directory_pbx=$(grep 'download_directory_pbx=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
-  directory_pbx="${directory_pbx:0:3}"
+  directory_direct=$(grep 'download_directory_direct=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); directory_direct="${directory_direct:0:3}"
+  directory_pbx=$(grep 'download_directory_pbx=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); directory_pbx="${directory_pbx:0:3}"
+  
+  create_yealink=$(grep 'create_yealink=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); create_yealink="${create_yealink:0:3}"
+  create_cisco=$(grep 'create_cisco=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); create_cisco="${create_cisco:0:3}"
+  create_noname=$(grep 'create_noname=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); create_noname="${create_noname:0:3}"
+  
+  echo $create_yealink $create_cisco $create_noname
+  
   crontab_hour=$(grep 'crontab_hour=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
   crontab_min=$(grep 'crontab_min=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
   crontab_hour=$((crontab_hour))
   crontab_min=$((crontab_min))
-  
-  echo "Length: ${#directory_direct}"
-  
-  echo "The crontab hour is: $crontab_hour"
-  echo "The crontab minute is: $crontab_min"
-  echo "directory_direct is: $directory_direct"
-  echo
 
 
 function LOGInformation ()
@@ -66,49 +78,43 @@ function LOGInformation ()
   cd /arednstack/phonebook
   
   
-  echo "Install $LOCATION_URL$DIRECT_DOWNLOADER_URL"  
-  #curl -o phonebook_installer.sh "$LOCATION_URL$DIRECT_DOWNLOADER_URL"
+  echo "Download and install $INSTALLER_URL"  
+  #curl -o phonebook_installer.sh "$LOCATION_URL$INSTALLER_URL"
   chmod +x phonebook_installer.sh
-  echo "phonebook_installer installed"
+  echo "$INSTALLER_URL installed"
+  echo
   echo
   
-  echo "Install $LOCATION_URL$DIRECT_DOWNLOADER_URL" 
-  curl -o phonebook_downloader_direct.sh "$LOCATION_URL$DIRECT_DOWNLOADER_URL"
-  chmod +x phonebook_downloader_direct.sh
-  echo "phonebook_downloader_direct installed"
-  echo
+# Download phonebook.csv
+PHONEBOOK_URL="$LOCATION_URL/AREDN_Phonebook.csv"
+curl -o phonebook_original.csv "$PHONEBOOK_URL"
   
-  echo "Install $LOCATION_URL$PBX_DOWNLOADER_URL" 
-  curl -o phonebook_downloader_pbx.sh "$LOCATION_URL$PBX_DOWNLOADER_URL"
-  chmod +x phonebook_downloader_pbx.sh
-  echo "phonebook_downloader_pbx installed"
-  echo
-  
-  echo "directory_direct is: $directory_direct"
   if [ $directory_direct == "YES" ]; then  
-	echo "Download and execute phonebook_downloader_direct"
-	curl -o phonebook_downloader_direct.sh "$LOCATION_URL$DIRECT_DOWNLOADER_URL"
-	chmod +x phonebook_downloader_direct.sh
-	./phonebook_downloader_direct.sh
-	echo "phonebook_downloader_direct installed and executed"
+	echo "DIRECT call file creator download and execute: $directory_direct"
+	echo "$LOCATION_URL$DIRECT_CREATOR_FILE_NAME"
+	curl -o $DIRECT_CREATOR_FILE_NAME "$LOCATION_URL$DIRECT_CREATOR_FILE_NAME"
+	chmod +x $DIRECT_CREATOR_FILE_NAME
+	./$DIRECT_CREATOR_FILE_NAME $create_yealink $create_cisco $create_noname
+	echo "Direct call file creator executed"
+	echo
 	echo
   else
-	echo "phonebook_downloader_direct NOT installed"
+	echo "Direct call file creator NOT installed"
+	echo
 	echo
   fi
   
   if [ $directory_pbx == "YES" ]; then
-	echo "Download and execute phonebook_downloader_pbx"
-	curl -o phonebook_downloader_pbx.sh "$LOCATION_URL$PBX_DOWNLOADER_URL"
-	chmod +x phonebook_downloader_pbx.sh
-	./phonebook_downloader_pbx.sh
-	echo "phonebook_downloader_pbx installed and executed"
+	echo "PBX call file creator download and execute: $directory_pbx"
+	curl -o $PBX_CREATOR_FILE_NAME "$LOCATION_URL$PBX_CREATOR_FILE_NAME"
+	chmod +x $PBX_CREATOR_FILE_NAME
+	./$PBX_CREATOR_FILE_NAME $create_yealink $create_cisco $create_noname
+	echo "PBX Creator file creator executed"
 	echo
  else
-	echo "phonebook_downloader_pbx NOT installed"
+	echo "PBX call file creator NOT installed"
 	echo
  fi
-
 
 # cronjob test (installroutine). It runs every day at
 {
@@ -119,6 +125,9 @@ function LOGInformation ()
         echo "cronjob entry exists for installer"
 		echo
     fi
+    echo "The crontab job will run at: $crontab_hour:$crontab_min"
+    echo
+    echo
 }
 
 
