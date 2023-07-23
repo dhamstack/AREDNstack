@@ -148,7 +148,7 @@ echo
 echo "......Install crontab"
 if ! crontab -l | grep -q "${installer_file_name}"; then
         echo "Install cronjob for installer"
-        (crontab -l 2>/dev/null; echo "$crontab_min $crontab_hour * * * /arednstack/phonebook/$installer_file_name | sh") | crontab -
+        (crontab -l 2>/dev/null; echo "$crontab_min $crontab_hour * * * /arednstack/phonebook/$installer_file_name") | crontab -
 else
         echo "cronjob entry exists for installer"
 		echo
