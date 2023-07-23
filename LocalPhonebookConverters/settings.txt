@@ -1,4 +1,4 @@
-#Direct calling or PBX opeation
+#Direct calling or PBX operation
 download_directory_direct=YES
 download_directory_pbx=YES
 
