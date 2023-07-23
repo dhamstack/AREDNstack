@@ -1,5 +1,5 @@
 #!/bin/ash
-# $Author: Andreas HB9BLA $
+# $Author: Andreas HB9BLA
 # $Date: 2023/07/22 $
 # $Revision: 2.1 $
 
@@ -64,11 +64,18 @@ tail "$input_file"
 done < "$input_file"
 
 # Close the XML structure
-echo "</YealinkIPPhoneDirectory>" >> "$output_file1"
-echo "</CiscoIPPhoneDirectory>" >> "$output_file2"
-echo "</GigasetIPPhoneDirectory>" >> "$output_file3"
+if [ $1 == "YES" ]; then
+  echo "</YealinkIPPhoneDirectory>" >> "$output_file1"
+  echo "Conversion completed. Output file: $output_file1"
+fi
 
-echo "Conversion completed. Output file: $output_file1"
-echo "Conversion completed. Output file: $output_file2"
-echo "Conversion completed. Output file: $output_file3"
+if [ $2 == "YES" ]; then
+  echo "</CiscoIPPhoneDirectory>" >> "$output_file2"
+  echo "Conversion completed. Output file: $output_file2"
+fi
+
+if [ $3 == "YES" ]; then
+  echo "</GigasetIPPhoneDirectory>" >> "$output_file3"
+  echo "Conversion completed. Output file: $output_file3"
+fi
 
