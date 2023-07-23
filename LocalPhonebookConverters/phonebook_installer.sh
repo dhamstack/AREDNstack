@@ -6,7 +6,7 @@
 #
 
 # Definitions
-INSTALLER_URL="phonebook_installer.sh"
+installer_file_name="phonebook_installer.sh"
 DIRECT_CREATOR_FILE_NAME="phonebook_creator_direct.sh"
 PBX_CREATOR_FILE_NAME="phonebook_creator_pbx.sh"
 SETTINGS_FILE_NAME="settings.txt"
@@ -99,10 +99,10 @@ echo "Location_url from settings.txt $location_url"
 # Download and install phonebook_installer.sh
 echo
 echo
-echo "......Download and install $location_url$INSTALLER_URL"  
-curl -o phonebook_installer.sh "$location_url$INSTALLER_URL"
+echo "......Download and install $location_url$installer_file_name"  
+curl -o phonebook_installer.sh "$location_url$installer_file_name"
 chmod +x phonebook_installer.sh
-echo "$INSTALLER_URL installed"
+echo "$installer_file_name installed"
 echo
 echo
   
@@ -146,9 +146,9 @@ fi
 echo
 echo
 echo "......Install crontab"
-if ! crontab -l | grep -q "${INSTALLER_URL}"; then
+if ! crontab -l | grep -q "${installer_file_name}"; then
         echo "Install cronjob for installer"
-        (crontab -l 2>/dev/null; echo "$crontab_min $crontab_hour * * * curl -s -L ${INSTALLER_URL} | sh") | crontab -
+        (crontab -l 2>/dev/null; echo "$crontab_min $crontab_hour * * * /arednstack/phonebook/$installer_file_name | sh") | crontab -
 else
         echo "cronjob entry exists for installer"
 		echo
