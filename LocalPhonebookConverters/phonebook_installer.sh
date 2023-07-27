@@ -27,8 +27,8 @@ echo
 echo ".................................PHONEBOOK INSTALLATION STARTS............."
 
 # Remove all phonebook files from the www directory
-echo "Remove all phonebook files from the www directory"
 rm /www/phonebook*.*
+echo "All phonebook files from the www directory removed"
 echo
 echo
 
@@ -55,29 +55,31 @@ cd /arednstack/phonebook
 echo
 echo
 echo "......Download settings file"
-echo "DOWNLOAD $SETTINGS_FILE_NAME: $1$SETTINGS_FILE_NAME"
 if [ ! -f "/arednstack/phonebook/settings.txt" ]; then
+    echo "DOWNLOAD $SETTINGS_FILE_NAME: $1$SETTINGS_FILE_NAME"
 	curl -o /arednstack/phonebook/settings.txt "$1$SETTINGS_FILE_NAME"
 	echo  >> settings.txt
-	echo "#WEB Server" >> settings.txt
-    echo "location_url=$1" >> settings.txt
-	echo "$SETTINGS_FILE_NAME downloaded"
+	echo "# Time when the phonebook is updated" >> /arednstack/phonebook/settings.txt
+	echo "crontab_hour=23" >> /arednstack/phonebook/settings.txt
+	echo "crontab_min=$((($(date '+%s')) % 59))" >> /arednstack/phonebook/settings.txt  # random minutes to avoid that all cronjobs run at the same time
+	echo  >> settings.txt  #add aa blank line
+	echo "#WEB Server" >> /arednstack/phonebook/settings.txt
+    echo "location_url=$1" >> /arednstack/phonebook/settings.txt
+	echo "$SETTINGS_FILE_NAME created"
   else
 	echo "$SETTINGS_FILE_NAME file already exists, skipping download"
 fi
 echo
 echo
-echo "Settings file"
+echo "Here is your settings file:"
 echo
 cat /arednstack/phonebook/settings.txt
 echo
-echo
-
 
 # Read variables in setttings file
 echo
 echo
-echo "......Read variables in setttings file"
+echo "......Read variables from setttings file"
 location_url=$(grep 'location_url=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
 directory_direct=$(grep 'download_directory_direct=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); directory_direct="${directory_direct:0:3}"
 directory_pbx=$(grep 'download_directory_pbx=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); directory_pbx="${directory_pbx:0:3}"
@@ -86,24 +88,12 @@ create_yealink=$(grep 'create_yealink=' /arednstack/phonebook/settings.txt | awk
 create_cisco=$(grep 'create_cisco=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); create_cisco="${create_cisco:0:3}"
 create_noname=$(grep 'create_noname=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); create_noname="${create_noname:0:3}"
   
-echo "Telehone books to create $create_yealink $create_cisco $create_noname"
+echo "Telephone books to create: ${create_yealink} ${create_cisco} ${create_noname}"
   
 crontab_hour=$(grep 'crontab_hour=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
 crontab_min=$(grep 'crontab_min=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
 crontab_hour=$((crontab_hour))
 crontab_min=$((crontab_min))
-echo
-echo "Location_url from settings.txt $location_url"
-
-  
-# Download and install phonebook_installer.sh
-echo
-echo
-echo "......Download and install $location_url$installer_file_name"  
-curl -o phonebook_installer.sh "$location_url$installer_file_name"
-chmod +x phonebook_installer.sh
-echo "$installer_file_name installed"
-echo
 echo
   
 # Download phonebook.csv
@@ -113,8 +103,7 @@ curl -o phonebook_original.csv "$PHONEBOOK_URL"
 echo "Phonebook.csv downloaded"
 echo
 echo
-  
-  
+
 echo "......DIRECT-call file creator download and execute: $directory_direct"
 if [ $directory_direct == "YES" ]; then  
 	echo "$location_url$DIRECT_CREATOR_FILE_NAME"
@@ -145,13 +134,17 @@ fi
 # crontab test (installroutine). It runs every day at
 echo
 echo
-echo "......Install crontab"
+echo "......Crontab installation"
+if ! crontab -l >/dev/null 2>&1; then
+   echo "disregard the following error message"
+fi
+
 if ! crontab -l | grep -q "${installer_file_name}"; then
-        echo "Install cronjob for installer"
         (crontab -l 2>/dev/null; echo "$crontab_min $crontab_hour * * * /arednstack/phonebook/$installer_file_name") | crontab -
+		echo "Cronjob installed"
 else
         echo "cronjob entry exists for installer"
 		echo
 fi
-echo "The crontab job will run at: $crontab_hour:$crontab_min"
+crontab -l
 echo
