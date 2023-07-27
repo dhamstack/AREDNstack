@@ -59,9 +59,9 @@ if [ ! -f "/arednstack/phonebook/settings.txt" ]; then
     echo "DOWNLOAD $SETTINGS_FILE_NAME: $1$SETTINGS_FILE_NAME"
 	curl -o /arednstack/phonebook/settings.txt "$1$SETTINGS_FILE_NAME"
 	echo  >> settings.txt
-	echo "# Time when the phonebook is updated" >> /arednstack/phonebook/settings.txt
-	echo "crontab_hour=23" >> /arednstack/phonebook/settings.txt
-	echo "crontab_min=$((($(date '+%s')) % 59))" >> /arednstack/phonebook/settings.txt  # random minutes to avoid that all cronjobs run at the same time
+#	echo "# Time when the phonebook is updated" >> /arednstack/phonebook/settings.txt
+#	echo "crontab_hour=23" >> /arednstack/phonebook/settings.txt
+#	echo "crontab_min=$((($(date '+%s')) % 59))" >> /arednstack/phonebook/settings.txt  # random minutes to avoid that all cronjobs run at the same time
 	echo  >> settings.txt  #add aa blank line
 	echo "#WEB Server" >> /arednstack/phonebook/settings.txt
     echo "location_url=$1" >> /arednstack/phonebook/settings.txt
@@ -90,10 +90,10 @@ create_noname=$(grep 'create_noname=' /arednstack/phonebook/settings.txt | awk -
   
 echo "Telephone books to create: ${create_yealink} ${create_cisco} ${create_noname}"
   
-crontab_hour=$(grep 'crontab_hour=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
-crontab_min=$(grep 'crontab_min=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
-crontab_hour=$((crontab_hour))
-crontab_min=$((crontab_min))
+#crontab_hour=$(grep 'crontab_hour=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
+#crontab_min=$(grep 'crontab_min=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}')
+#crontab_hour=$((crontab_hour))
+#crontab_min=$((crontab_min))
 echo
   
 # Download phonebook.csv
@@ -140,10 +140,11 @@ if ! crontab -l >/dev/null 2>&1; then
 fi
 
 if ! crontab -l | grep -q "${installer_file_name}"; then
-        (crontab -l 2>/dev/null; echo "$crontab_min $crontab_hour * * * /arednstack/phonebook/$installer_file_name") | crontab -
-		echo "Cronjob installed"
+        (crontab -l 2>/dev/null; echo "$((($(date '+%s')) % 59)) 23 * * * /arednstack/phonebook/$installer_file_name") | crontab -
+		echo "Crontab installed"
+		echo
 else
-        echo "cronjob entry exists for installer"
+        echo "Crontab entry for installer exists"
 		echo
 fi
 crontab -l
