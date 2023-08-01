@@ -140,7 +140,7 @@ if ! crontab -l >/dev/null 2>&1; then
 fi
 
 if ! crontab -l | grep -q "${installer_file_name}"; then
-        (crontab -l 2>/dev/null; echo "$((($(date '+%s')) % 59)) 23 * * * /arednstack/phonebook/$installer_file_name") | crontab -
+        (crontab -l 2>/dev/null; echo "$((($(date '+%s')) % 59)) 23 * * * curl $location_url$installer_file_name |sh -s $1") | crontab -
 		echo "Crontab installed"
 		echo
 else
