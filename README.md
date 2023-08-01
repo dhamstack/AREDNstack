@@ -1,4 +1,4 @@
-You find the documentation in the documentation folder (Installation of phonebook replication on hap router.pdf)
+You find the documentation in the documentation folder (e.g. Installation of phonebook replication on hap router.pdf)
 
 
 # To do list
