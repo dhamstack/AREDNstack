@@ -111,6 +111,7 @@ file2="phonebook_new.csv"
 # Compare the new phonebook with the old one and exit if no changes
 if cmp -s "$file1" "$file2"; then
     echo "The downloaded phonebook is the same as the existing one. No changes needed."
+	rm $file2
 	exit 0  # Exit the script with a success status (0)
 else
     # Copy the contents of file2 to file1
