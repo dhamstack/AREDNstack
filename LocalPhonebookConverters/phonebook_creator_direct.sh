@@ -26,6 +26,7 @@ fi
 input_file="phonebook_original.csv"
 echo "$PHONEBOOK_URL opened"
 tail "$input_file"
+echo
 
 # Read the input file line by line
    while IFS="," read -r first_name name callsign ip_address telephone email club mobile street City; do
