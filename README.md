@@ -1,3 +1,6 @@
+You find the documentation in the documentation folder (Installation of phonebook replication on hap router.pdf)
+
+
 # To do list
 - Phonebook/ for other brands (Cisco)
 - Infrastructure (copy from IOTstack)
