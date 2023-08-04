@@ -75,28 +75,10 @@ echo
   
 # Download phonebook.csv
 echo "......Download Phonebook.csv"
-curl -o phonebook_new.csv "$webserver$PHONEBOOK_URL"
+curl -o phonebook_original.csv "$webserver$PHONEBOOK_URL"
 echo "$webserver$PHONEBOOK_URL downloaded"
 echo
 echo
-
-file1="phonebook_original.csv"
-file2="phonebook_new.csv"
-
-
-# Compare the new phonebook with the old one and exit if no changes
-if cmp -s "$file1" "$file2"; then
-    echo "The downloaded phonebook is the same as the existing one. No changes needed."
-	rm $file2
-	exit 0  # Exit the script with a success status (0)
-else
-    # Copy the contents of file2 to file1
-    cp "$file2" "$file1"
-    echo "File replaced successfully."
-	rm $file2
-fi
-
-
 
 echo "......DIRECT-call file creator download and execute: $create_directory_direct"
 if [ $create_directory_direct == "YES" ]; then  

@@ -6,7 +6,7 @@
 echo
 echo
 echo
-echo "Start PHONEBOOK_CREATOR_PBX........"
+echo "Start PHONEBOOK_CREATOR_Direct........"
 
 cd /arednstack/phonebook
 
