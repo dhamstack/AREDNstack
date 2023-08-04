@@ -4,6 +4,8 @@
 # $Revision: 2.1 $
 
 echo
+echo
+echo
 echo "Start PHONEBOOK_CREATOR_PBX........"
 
 cd /arednstack/phonebook

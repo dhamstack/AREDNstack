@@ -1,6 +1,6 @@
 #Direct calling or PBX operation
-download_directory_direct=YES
-download_directory_pbx=YES
+create_directory_direct=YES
+create_directory_pbx=YES
 
 #Which Brands of phones are used on your router
 create_yealink=YES

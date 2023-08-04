@@ -3,13 +3,12 @@
 # $Date: 2023/07/22 $
 # $Revision: 2.1 $
 
-
+echo
+echo
 echo
 echo "Start PHONEBOOK_CREATOR_PBX........"
 
 cd /arednstack/phonebook
-
-echo $1 $2 $3
 
 if [ $1 == "YES" ]; then
   output_file1="/www/phonebook_yealink_pbx.xml"
