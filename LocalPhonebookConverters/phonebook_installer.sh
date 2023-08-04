@@ -26,12 +26,6 @@ echo "Download from $webserver"
 echo
 echo ".................................PHONEBOOK INSTALLATION STARTS............."
 
-# Remove all phonebook files from the www directory
-rm /www/phonebook*.*
-echo "All phonebook files from the www directory removed"
-echo
-echo
-
 
 # Create directory for AREDN phonebook files
 echo "......Create directory for AREDN phonebook files"
