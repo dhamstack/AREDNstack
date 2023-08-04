@@ -127,6 +127,6 @@ crontab -l
 echo
 echo
 
-Echo "Remove phonebook_original.csv file"
+echo "Remove phonebook_original.csv file"
 rm *.csv
 
