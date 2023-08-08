@@ -1,16 +1,141 @@
 #!/bin/ash
 # $Author: Patrick HB9HDH & Daniel HB9HFM & Andreas HB9BLA $
-# $Date: 2023/07/22 $
-# $Revision: 2.1 $
-# $Source: checkTFTPService-v10.sh,v $
+# $Date: 2023/08/08 $
+# $Revision: 3.0 $
 #
 
-# Definitions
-installer_file_name="phonebook_installer.sh"
-DIRECT_CREATOR_FILE_NAME="phonebook_creator_direct.sh"
-PBX_CREATOR_FILE_NAME="phonebook_creator_pbx.sh"
-SETTINGS_FILE_NAME="settings.txt"
-PHONEBOOK_URL="AREDN_Phonebook.csv"
+
+# Function to generate XML files for direct calling
+generate_phonebooks_direct() {
+	if [ $create_yealink == "YES" ]; then
+	  output_file1="/www/phonebook_yealink_direct.xml"
+	  echo "<YealinkIPPhoneDirectory>" > "$output_file1"
+	fi
+	if [ $create_cisco == "YES" ]; then
+	  output_file2="/www/phonebook_cisco_direct.xml"
+	  echo "<CiscoIPPhoneDirectory>" > "$output_file2"
+	fi
+	if [ $create_noname == "YES" ]; then
+	  output_file3="/www/phonebook_noname_direct.xml"
+	  echo "<GigasetIPPhoneDirectory>" > "$output_file3"
+	fi
+
+	# Read the input file line by line
+	while IFS="," read -r first_name name callsign ip_address telephone email club mobile street City; do
+		line_number=$((line_number+1))
+		
+		# Skip the header line
+		if [ "$line_number" -le 1 ]; then
+			continue
+		fi
+
+		# Write the XML structure for Yealink
+		if [ $create_yealink == "YES" ]; then
+			echo "    <DirectoryEntry>" >> "$output_file1"
+			echo "        <Name>$name $first_name $callsign</Name>" >> "$output_file1"
+			echo "        <Telephone>$ip_address</Telephone>" >> "$output_file1"
+			echo "    </DirectoryEntry>" >> "$output_file1"
+		fi
+		
+		# Write the XML structure for Cisco
+		if [ $create_cisco == "YES" ]; then
+		  echo "    <DirectoryEntry>" >> "$output_file2"
+		  echo "        <Name>$name $first_name $callsign</Name>" >> "$output_file2"
+		  echo "        <Telephone>$ip_address</Telephone>" >> "$output_file2"
+		  echo "    </DirectoryEntry>" >> "$output_file2"
+		fi
+		
+		# Write the XML structure for Noname
+		if [ $create_noname == "YES" ]; then
+		  echo "    <DirectoryEntry>" >> "$output_file3"
+		  echo "        <Name>$first_name $name $callsign</Name>" >> "$output_file3"
+		  echo "        <Telephone>$ip_address</Telephone>" >> "$output_file3"
+		  echo "    </DirectoryEntry>" >> "$output_file3"
+		fi
+	done < "$input_file"
+
+	# Close the XML structure
+	if [ $create_yealink == "YES" ]; then
+	  echo "</YealinkIPPhoneDirectory>" >> "$output_file1"
+	  echo "Conversion completed. Output file: $output_file1"
+	fi
+
+	if [ $create_cisco == "YES" ]; then
+	  echo "</CiscoIPPhoneDirectory>" >> "$output_file2"
+	  echo "Conversion completed. Output file: $output_file2"
+	fi
+
+	if [ $create_noname == "YES" ]; then
+	  echo "</GigasetIPPhoneDirectory>" >> "$output_file3"
+	  echo "Conversion completed. Output file: $output_file3"
+	fi
+}
+
+# Function to generate XML files for direct calling
+generate_phonebooks_pbx() {
+	if [ $create_yealink == "YES" ]; then
+	  output_file1="/www/phonebook_yealink_pbx.xml"
+	  echo "<YealinkIPPhoneDirectory>" > "$output_file1"
+	fi
+	if [ $create_cisco == "YES" ]; then
+	  output_file2="/www/phonebook_cisco_pbx.xml"
+	  echo "<CiscoIPPhoneDirectory>" > "$output_file2"
+	fi
+	if [ $create_noname == "YES" ]; then
+	  output_file3="/www/phonebook_noname_pbx.xml"
+	  echo "<GigasetIPPhoneDirectory>" > "$output_file3"
+	fi
+
+	# Read the input file line by line
+	while IFS="," read -r first_name name callsign ip_address telephone email club mobile street City; do
+		line_number=$((line_number+1))
+		
+		# Skip the header line
+		if [ "$line_number" -le 1 ]; then
+			continue
+		fi
+
+		# Write the XML structure for file1
+		if [ $create_yealink == "YES" ]; then
+		  echo "    <DirectoryEntry>" >> "$output_file1"
+		  echo "        <Name>$name $first_name $callsign</Name>" >> "$output_file1"
+		  echo "        <Telephone>$telephone</Telephone>" >> "$output_file1"
+		  echo "    </DirectoryEntry>" >> "$output_file1"
+		fi
+		
+		# Write the XML structure for file2
+		if [ $create_cisco == "YES" ]; then
+		  echo "    <DirectoryEntry>" >> "$output_file2"
+		  echo "        <Name>$name $first_name $callsign</Name>" >> "$output_file2"
+		  echo "        <Telephone>$telephone</Telephone>" >> "$output_file2"
+		  echo "    </DirectoryEntry>" >> "$output_file2"
+		fi
+		
+		# Write the XML structure for file3
+		if [ $create_noname == "YES" ]; then
+		  echo "    <DirectoryEntry>" >> "$output_file3"
+		  echo "        <Name>$first_name $name $callsign</Name>" >> "$output_file3"
+		  echo "        <Telephone>$telephone</Telephone>" >> "$output_file3"
+		  echo "    </DirectoryEntry>" >> "$output_file3"
+		fi
+	done < "$input_file"
+
+	# Close the XML structure
+	if [ $create_yealink == "YES" ]; then
+	  echo "</YealinkIPPhoneDirectory>" >> "$output_file1"
+	  echo "Conversion completed. Output file: $output_file1"
+	fi
+
+	if [ $create_cisco == "YES" ]; then
+	  echo "</CiscoIPPhoneDirectory>" >> "$output_file2"
+	  echo "Conversion completed. Output file: $output_file2"
+	fi
+
+	if [ $create_noname == "YES" ]; then
+	  echo "</GigasetIPPhoneDirectory>" >> "$output_file3"
+	  echo "Conversion completed. Output file: $output_file3"
+	fi
+}
 
 echo
 echo
@@ -20,34 +145,41 @@ echo
 echo
 echo "---------------START------------------"
 
+
+# Definitions
+installer_file_name="phonebook_installer.sh"
+DIRECT_CREATOR_FILE_NAME="phonebook_creator_direct.sh"
+PBX_CREATOR_FILE_NAME="phonebook_creator_pbx.sh"
+SETTINGS_FILE_NAME="settings.cfg"
+PHONEBOOK_URL="AREDN_Phonebook.csv"
+
 # $1 is the address of the webserver
 webserver=$1
 echo "Download from $webserver"
 echo
-echo ".................................PHONEBOOK INSTALLATION STARTS............."
-
-
+echo
 # Create directory for AREDN phonebook files
 echo "......Create directory for AREDN phonebook files"
 if [ -d "/arednstack/phonebook" ]
   then
    echo "Directory /arednstack/phonebook exist..."
-   echo
    else
    mkdir /arednstack/
    cd /arednstack
    mkdir phonebook
    echo "/arednstack/phonebook created"
-   echo
 fi
+echo
+echo
+
 cd /arednstack/phonebook
   
 # Download settings file
 echo "......Download settings file"
-if [ ! -f "/arednstack/phonebook/settings.txt" ]; then
+if [ ! -f "/arednstack/phonebook/settings.cfg" ]; then
     echo "DOWNLOAD $SETTINGS_FILE_NAME: $webserver$SETTINGS_FILE_NAME"
-	curl -o /arednstack/phonebook/settings.txt "$webserver$SETTINGS_FILE_NAME"
-	echo "$SETTINGS_FILE_NAME created"
+	curl -o /arednstack/phonebook/settings.cfg "$webserver$SETTINGS_FILE_NAME"
+	echo "$SETTINGS_FILE_NAME downloaded"
   else
 	echo "$SETTINGS_FILE_NAME file already exists, skipping download"
 fi
@@ -55,61 +187,54 @@ echo
 echo
 echo "Here is your settings file:"
 echo "----------------------------"
-cat /arednstack/phonebook/settings.txt
+cat /arednstack/phonebook/settings.cfg
 echo
 echo "----------------------------"
 echo
 echo
 # Read variables in setttings file
 echo "......Read variables from setttings file"
-create_directory_direct=$(grep 'create_directory_direct=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); create_directory_direct="${create_directory_direct:0:3}"
-create_directory_pbx=$(grep 'create_directory_pbx=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); create_directory_pbx="${create_directory_pbx:0:3}"
+create_directory_direct=$(grep 'create_directory_direct=' /arednstack/phonebook/settings.cfg | awk -F '=' '{print $2}'); create_directory_direct="${create_directory_direct:0:3}"
+create_directory_pbx=$(grep 'create_directory_pbx=' /arednstack/phonebook/settings.cfg | awk -F '=' '{print $2}'); create_directory_pbx="${create_directory_pbx:0:3}"
   
-create_yealink=$(grep 'create_yealink=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); create_yealink="${create_yealink:0:3}"
-create_cisco=$(grep 'create_cisco=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); create_cisco="${create_cisco:0:3}"
-create_noname=$(grep 'create_noname=' /arednstack/phonebook/settings.txt | awk -F '=' '{print $2}'); create_noname="${create_noname:0:3}"
-  
-echo "Telephone books to create: ${create_directory_direct} ${create_directory_pbx}"
-echo "Telephone brands to serve: ${create_yealink} ${create_cisco} ${create_noname}"
+create_yealink=$(grep 'create_yealink=' /arednstack/phonebook/settings.cfg | awk -F '=' '{print $2}'); create_yealink="${create_yealink:0:3}"
+create_cisco=$(grep 'create_cisco=' /arednstack/phonebook/settings.cfg | awk -F '=' '{print $2}'); create_cisco="${create_cisco:0:3}"
+create_noname=$(grep 'create_noname=' /arednstack/phonebook/settings.cfg | awk -F '=' '{print $2}'); create_noname="${create_noname:0:3}"
 echo
   
 # Download phonebook.csv
 echo "......Download Phonebook.csv"
 curl -o phonebook_original.csv "$webserver$PHONEBOOK_URL"
+echo
 echo "$webserver$PHONEBOOK_URL downloaded"
+input_file="phonebook_original.csv"
 echo
 echo
-
-echo "......DIRECT-call file creator download and execute: $create_directory_direct"
+tail "$input_file"
+echo
+echo
+echo "......Create DIRECT-call phonebook"
 if [ $create_directory_direct == "YES" ]; then  
-	echo "$webserver$DIRECT_CREATOR_FILE_NAME"
-	curl -o $DIRECT_CREATOR_FILE_NAME "$webserver$DIRECT_CREATOR_FILE_NAME"
-	chmod +x $DIRECT_CREATOR_FILE_NAME
-	./$DIRECT_CREATOR_FILE_NAME $create_yealink $create_cisco $create_noname
-	echo "Direct-call file creator executed"
-	echo
-	echo
+   generate_phonebooks_direct
+   echo "Direct-call phonebook created"
   else
-	echo "Direct-call file creator NOT executed"
-	echo
-	echo
+	echo "Direct-call phonebook NOT created"
 fi
+
+echo
+echo
  
-echo ".....PBX-call file creator download and execute: $create_directory_pbx"
+echo ".....Create PBX-call phonebook"
 if [ $create_directory_pbx == "YES" ]; then
-	curl -o $PBX_CREATOR_FILE_NAME "$webserver$PBX_CREATOR_FILE_NAME"
-	chmod +x $PBX_CREATOR_FILE_NAME
-	./$PBX_CREATOR_FILE_NAME $create_yealink $create_cisco $create_noname
-	echo "PBX-call file creator executed"
-	echo
-else
-	echo "PBX-call file creator NOT executed"
-	echo
+generate_phonebooks_pbx
+   echo "Direct-call phonebook created"
+  else
+	echo "Direct-call phonebook NOT created"
 fi
+echo
+echo
 
 # crontab test (installroutine). It runs every day at
-echo
-echo
 echo "......Crontab installation"
 if ! crontab -l >/dev/null 2>&1; then
    echo "disregard the following error message"
