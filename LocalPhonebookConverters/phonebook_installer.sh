@@ -150,7 +150,7 @@ echo "---------------START------------------"
 installer_file_name="phonebook_installer.sh"
 DIRECT_CREATOR_FILE_NAME="phonebook_creator_direct.sh"
 PBX_CREATOR_FILE_NAME="phonebook_creator_pbx.sh"
-SETTINGS_FILE_NAME="settings.cfg"
+SETTINGS_FILE_NAME="settings.txt"
 PHONEBOOK_URL="AREDN_Phonebook.csv"
 
 # $1 is the address of the webserver
@@ -176,9 +176,9 @@ cd /arednstack/phonebook
   
 # Download settings file
 echo "......Download settings file"
-if [ ! -f "/arednstack/phonebook/settings.cfg" ]; then
+if [ ! -f "$SETTINGS_FILE_NAME" ]; then
     echo "DOWNLOAD $SETTINGS_FILE_NAME: $webserver$SETTINGS_FILE_NAME"
-	curl -o /arednstack/phonebook/settings.cfg "$webserver$SETTINGS_FILE_NAME"
+	curl -o $SETTINGS_FILE_NAME "$webserver$SETTINGS_FILE_NAME"
 	echo "$SETTINGS_FILE_NAME downloaded"
   else
 	echo "$SETTINGS_FILE_NAME file already exists, skipping download"
@@ -187,19 +187,19 @@ echo
 echo
 echo "Here is your settings file:"
 echo "----------------------------"
-cat /arednstack/phonebook/settings.cfg
+cat $SETTINGS_FILE_NAME
 echo
 echo "----------------------------"
 echo
 echo
 # Read variables in setttings file
 echo "......Read variables from setttings file"
-create_directory_direct=$(grep 'create_directory_direct=' /arednstack/phonebook/settings.cfg | awk -F '=' '{print $2}'); create_directory_direct="${create_directory_direct:0:3}"
-create_directory_pbx=$(grep 'create_directory_pbx=' /arednstack/phonebook/settings.cfg | awk -F '=' '{print $2}'); create_directory_pbx="${create_directory_pbx:0:3}"
+create_directory_direct=$(grep 'create_directory_direct=' $SETTINGS_FILE_NAME | awk -F '=' '{print $2}'); create_directory_direct="${create_directory_direct:0:3}"
+create_directory_pbx=$(grep 'create_directory_pbx=' $SETTINGS_FILE_NAME | awk -F '=' '{print $2}'); create_directory_pbx="${create_directory_pbx:0:3}"
   
-create_yealink=$(grep 'create_yealink=' /arednstack/phonebook/settings.cfg | awk -F '=' '{print $2}'); create_yealink="${create_yealink:0:3}"
-create_cisco=$(grep 'create_cisco=' /arednstack/phonebook/settings.cfg | awk -F '=' '{print $2}'); create_cisco="${create_cisco:0:3}"
-create_noname=$(grep 'create_noname=' /arednstack/phonebook/settings.cfg | awk -F '=' '{print $2}'); create_noname="${create_noname:0:3}"
+create_yealink=$(grep 'create_yealink=' $SETTINGS_FILE_NAME | awk -F '=' '{print $2}'); create_yealink="${create_yealink:0:3}"
+create_cisco=$(grep 'create_cisco=' $SETTINGS_FILE_NAME | awk -F '=' '{print $2}'); create_cisco="${create_cisco:0:3}"
+create_noname=$(grep 'create_noname=' $SETTINGS_FILE_NAME | awk -F '=' '{print $2}'); create_noname="${create_noname:0:3}"
 echo
   
 # Download phonebook.csv
