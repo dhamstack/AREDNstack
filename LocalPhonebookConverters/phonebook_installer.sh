@@ -5,6 +5,14 @@
 #
 
 
+# Definitions
+installer_file_name="phonebook_installer.sh"
+DIRECT_CREATOR_FILE_NAME="phonebook_creator_direct.sh"
+PBX_CREATOR_FILE_NAME="phonebook_creator_pbx.sh"
+SETTINGS_FILE_NAME="settings.txt"
+PHONEBOOK_URL="AREDN_Phonebook.csv"
+CRON_FILE_NAME="/etc/cron.daily/download_phonebook"
+
 # Function to generate XML files for direct calling
 generate_phonebooks_direct() {
 	if [ $create_yealink == "YES" ]; then
@@ -145,14 +153,6 @@ echo
 echo
 echo "---------------START------------------"
 
-
-# Definitions
-installer_file_name="phonebook_installer.sh"
-DIRECT_CREATOR_FILE_NAME="phonebook_creator_direct.sh"
-PBX_CREATOR_FILE_NAME="phonebook_creator_pbx.sh"
-SETTINGS_FILE_NAME="settings.txt"
-PHONEBOOK_URL="AREDN_Phonebook.csv"
-
 # $1 is the address of the webserver
 webserver=$1
 echo "Download from $webserver"
@@ -235,20 +235,16 @@ echo
 echo
 
 # crontab test (installroutine). It runs every day at
-echo "......Crontab installation"
-if ! crontab -l >/dev/null 2>&1; then
-   echo "disregard the following error message"
-fi
+rm $CRON_FILE_NAME
 
-if ! crontab -l | grep -q "${installer_file_name}"; then
-        (crontab -l 2>/dev/null; echo "$((($(date '+%s')) % 59)) 23 * * * curl $webserver$installer_file_name |sh -s $webserver") | crontab -
-		echo "Crontab installed"
-		echo
-else
-        echo "Crontab entry for installer exists"
-		echo
-fi
-crontab -l
+echo "#!/bin/ash" >> "$CRON_FILE_NAME"
+echo "" >> "$CRON_FILE_NAME"
+echo "curl $webserver$installer_file_name |sh -s $webserver" >> "$CRON_FILE_NAME"
+chmod 755 $CRON_FILE_NAME
+echo
+echo "Here is the daily phonebook downloader"
+echo
+cat $CRON_FILE_NAME
 echo
 echo
 echo "......Remove phonebook_original.csv file"
