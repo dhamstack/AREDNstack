@@ -181,7 +181,7 @@ if [ ! -f "$SETTINGS_FILE_NAME" ]; then
 	curl -o $SETTINGS_FILE_NAME "$webserver$SETTINGS_FILE_NAME"
 	echo "$SETTINGS_FILE_NAME downloaded"
   else
-	echo "$SETTINGS_FILE_NAME file already exists, skipping download"
+	echo "$SETTINGS_FILE_NAME already exists, skipping download"
 fi
 echo
 echo
