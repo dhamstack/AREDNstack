@@ -237,9 +237,12 @@ echo
 # crontab test (installroutine). It runs every day at
 rm $CRON_FILE_NAME
 
-echo "#!/bin/ash" >> "$CRON_FILE_NAME"
-echo "" >> "$CRON_FILE_NAME"
-echo "curl $webserver$installer_file_name |sh -s $webserver" >> "$CRON_FILE_NAME"
+cat << EOF > "$CRON_FILE_NAME"
+#!/bin/bash
+
+curl "$webserver$installer_file_name" |sh -s $webserver
+EOF
+
 chmod 755 $CRON_FILE_NAME
 echo
 echo "Here is the daily phonebook downloader"
@@ -249,4 +252,3 @@ echo
 echo
 echo "......Remove phonebook_original.csv file"
 rm *.csv
-
