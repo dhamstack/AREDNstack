@@ -238,7 +238,7 @@ echo
 rm $CRON_FILE_NAME
 
 cat << EOF > "$CRON_FILE_NAME"
-#!/bin/bash
+#!/bin/ash
 
 curl "$webserver$installer_file_name" |sh -s $webserver
 EOF
