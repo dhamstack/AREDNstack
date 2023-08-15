@@ -7,8 +7,6 @@
 
 # Definitions
 installer_file_name="phonebook_installer.sh"
-DIRECT_CREATOR_FILE_NAME="phonebook_creator_direct.sh"
-PBX_CREATOR_FILE_NAME="phonebook_creator_pbx.sh"
 SETTINGS_FILE_NAME="settings.txt"
 PHONEBOOK_URL="AREDN_Phonebook.csv"
 CRON_FILE_NAME="/etc/cron.daily/download_phonebook"
