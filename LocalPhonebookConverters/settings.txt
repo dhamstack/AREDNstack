@@ -6,3 +6,4 @@ create_directory_pbx=YES
 create_yealink=YES
 create_cisco=NO
 create_noname=NO
+create_snom=NO
