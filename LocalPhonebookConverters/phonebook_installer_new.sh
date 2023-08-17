@@ -25,6 +25,10 @@ generate_phonebooks_direct() {
 	  output_file3="/www/phonebook_noname_direct.xml"
 	  echo "<GigasetIPPhoneDirectory>" > "$output_file3"
 	fi
+	if [ "$create_snom" == "YES" ]; then
+	  output_file4="/www/phonebook_snom_direct.xml"
+	  echo "<SnomIPPhoneDirectory>" > "$output_file4"
+	fi
 
 	# Read the input file line by line
 	while IFS="," read -r first_name name callsign ip_address telephone email club mobile street City; do
@@ -58,6 +62,15 @@ generate_phonebooks_direct() {
 		  echo "        <Telephone>$ip_address</Telephone>" >> "$output_file3"
 		  echo "    </DirectoryEntry>" >> "$output_file3"
 		fi
+		
+		# Write the XML structure for Snom
+		if [ "$create_snom" == "YES" ]; then
+		  echo "    <DirectoryEntry>" >> "$output_file4"
+		  echo "        <Name>$first_name $name $callsign</Name>" >> "$output_file4"
+		  echo "        <Telephone>$ip_address</Telephone>" >> "$output_file4"
+		  echo "    </DirectoryEntry>" >> "$output_file4"
+		fi
+
 	done < "$input_file"
 
 	# Close the XML structure
@@ -75,6 +88,11 @@ generate_phonebooks_direct() {
 	  echo "</GigasetIPPhoneDirectory>" >> "$output_file3"
 	  echo "Conversion completed. Output file: $output_file3"
 	fi
+
+	if [ "$create_snom" == "YES" ]; then
+	  echo "</SnomIPPhoneDirectory>" >> "$output_file4"
+	  echo "Conversion completed. Output file: $output_file4"
+	fi
 }
 
 # Function to generate XML files for direct calling
@@ -90,6 +108,10 @@ generate_phonebooks_pbx() {
 	if [ "$create_noname" == "YES" ]; then
 	  output_file3="/www/phonebook_noname_pbx.xml"
 	  echo "<GigasetIPPhoneDirectory>" > "$output_file3"
+	fi
+	if [ "$create_snom" == "YES" ]; then
+	  output_file4="/www/phonebook_snom_pbx.xml"
+	  echo "<SnomIPPhoneDirectory>" > "$output_file4"
 	fi
 
 	# Read the input file line by line
@@ -124,6 +146,15 @@ generate_phonebooks_pbx() {
 		  echo "        <Telephone>$telephone</Telephone>" >> "$output_file3"
 		  echo "    </DirectoryEntry>" >> "$output_file3"
 		fi
+		
+		# Write the XML structure for file4
+		if [ "$create_snom" == "YES" ]; then
+		  echo "    <DirectoryEntry>" >> "$output_file4"
+		  echo "        <Name>$first_name $name $callsign</Name>" >> "$output_file4"
+		  echo "        <Telephone>$telephone</Telephone>" >> "$output_file4"
+		  echo "    </DirectoryEntry>" >> "$output_file4"
+		fi
+
 	done < "$input_file"
 
 	# Close the XML structure
@@ -140,6 +171,11 @@ generate_phonebooks_pbx() {
 	if [ "$create_noname" == "YES" ]; then
 	  echo "</GigasetIPPhoneDirectory>" >> "$output_file3"
 	  echo "Conversion completed. Output file: $output_file3"
+	fi
+
+	if [ "$create_snom" == "YES" ]; then
+	  echo "</SnomIPPhoneDirectory>" >> "$output_file4"
+	  echo "Conversion completed. Output file: $output_file4"
 	fi
 }
 
@@ -198,6 +234,7 @@ create_directory_pbx=$(grep 'create_directory_pbx=' $SETTINGS_FILE_NAME | awk -F
 create_yealink=$(grep 'create_yealink=' $SETTINGS_FILE_NAME | awk -F '=' '{print $2}'); create_yealink="${create_yealink:0:3}"
 create_cisco=$(grep 'create_cisco=' $SETTINGS_FILE_NAME | awk -F '=' '{print $2}'); create_cisco="${create_cisco:0:3}"
 create_noname=$(grep 'create_noname=' $SETTINGS_FILE_NAME | awk -F '=' '{print $2}'); create_noname="${create_noname:0:3}"
+create_snom=$(grep 'create_snom=' $SETTINGS_FILE_NAME | awk -F '=' '{print $2}'); create_snom="${create_snom:0:3}"
 echo
   
 # Download phonebook.csv
