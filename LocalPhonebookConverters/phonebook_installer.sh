@@ -1,7 +1,8 @@
 #!/bin/ash
 # $Author: Patrick HB9HDH & Daniel HB9HFM & Andreas HB9BLA $
-# $Date: 2023/08/08 $
-# $Revision: 3.0 $
+# snom support: Martin, HB9GVM
+# $Date: 2023/08/17 $
+# $Revision: 3.1 $
 #
 
 
@@ -13,20 +14,20 @@ CRON_FILE_NAME="/etc/cron.daily/download_phonebook"
 
 # Function to generate XML files for direct calling
 generate_phonebooks_direct() {
-	if [ $create_yealink == "YES" ]; then
+	if [ "$create_yealink" == "YES" ]; then
 	  output_file1="/www/phonebook_yealink_direct.xml"
 	  echo "<YealinkIPPhoneDirectory>" > "$output_file1"
 	fi
-	if [ $create_cisco == "YES" ]; then
+	if [ "$create_cisco" == "YES" ]; then
 	  output_file2="/www/phonebook_cisco_direct.xml"
 	  echo "<CiscoIPPhoneDirectory>" > "$output_file2"
 	fi
-	if [ $create_noname == "YES" ]; then
+	if [ "$create_noname" == "YES" ]; then
 	  output_file3="/www/phonebook_noname_direct.xml"
 	  echo "<GigasetIPPhoneDirectory>" > "$output_file3"
 	fi
-	if [ $create_snom == "YES" ]; then
-	  output_file4="/www/phonebook_noname_direct.xml"
+	if [ "$create_snom" == "YES" ]; then
+	  output_file4="/www/phonebook_snom_direct.xml"
 	  echo "<SnomIPPhoneDirectory>" > "$output_file4"
 	fi
 
@@ -40,7 +41,7 @@ generate_phonebooks_direct() {
 		fi
 
 		# Write the XML structure for Yealink
-		if [ $create_yealink == "YES" ]; then
+		if [ "$create_yealink" == "YES" ]; then
 			echo "    <DirectoryEntry>" >> "$output_file1"
 			echo "        <Name>$name $first_name $callsign</Name>" >> "$output_file1"
 			echo "        <Telephone>$ip_address</Telephone>" >> "$output_file1"
@@ -48,7 +49,7 @@ generate_phonebooks_direct() {
 		fi
 		
 		# Write the XML structure for Cisco
-		if [ $create_cisco == "YES" ]; then
+		if [ "$create_cisco" == "YES" ]; then
 		  echo "    <DirectoryEntry>" >> "$output_file2"
 		  echo "        <Name>$name $first_name $callsign</Name>" >> "$output_file2"
 		  echo "        <Telephone>$ip_address</Telephone>" >> "$output_file2"
@@ -56,7 +57,7 @@ generate_phonebooks_direct() {
 		fi
 		
 		# Write the XML structure for Noname
-		if [ $create_noname == "YES" ]; then
+		if [ "$create_noname" == "YES" ]; then
 		  echo "    <DirectoryEntry>" >> "$output_file3"
 		  echo "        <Name>$first_name $name $callsign</Name>" >> "$output_file3"
 		  echo "        <Telephone>$ip_address</Telephone>" >> "$output_file3"
@@ -64,32 +65,32 @@ generate_phonebooks_direct() {
 		fi
 		
 		# Write the XML structure for Snom
-		if [ $create_snom == "YES" ]; then
+		if [ "$create_snom" == "YES" ]; then
 		  echo "    <DirectoryEntry>" >> "$output_file4"
 		  echo "        <Name>$first_name $name $callsign</Name>" >> "$output_file4"
 		  echo "        <Telephone>$ip_address</Telephone>" >> "$output_file4"
 		  echo "    </DirectoryEntry>" >> "$output_file4"
 		fi
-  
+
 	done < "$input_file"
 
 	# Close the XML structure
-	if [ $create_yealink == "YES" ]; then
+	if [ "$create_yealink" == "YES" ]; then
 	  echo "</YealinkIPPhoneDirectory>" >> "$output_file1"
 	  echo "Conversion completed. Output file: $output_file1"
 	fi
 
-	if [ $create_cisco == "YES" ]; then
+	if [ "$create_cisco" == "YES" ]; then
 	  echo "</CiscoIPPhoneDirectory>" >> "$output_file2"
 	  echo "Conversion completed. Output file: $output_file2"
 	fi
 
-	if [ $create_noname == "YES" ]; then
+	if [ "$create_noname" == "YES" ]; then
 	  echo "</GigasetIPPhoneDirectory>" >> "$output_file3"
 	  echo "Conversion completed. Output file: $output_file3"
 	fi
 
-	if [ $create_snom == "YES" ]; then
+	if [ "$create_snom" == "YES" ]; then
 	  echo "</SnomIPPhoneDirectory>" >> "$output_file4"
 	  echo "Conversion completed. Output file: $output_file4"
 	fi
@@ -97,19 +98,19 @@ generate_phonebooks_direct() {
 
 # Function to generate XML files for direct calling
 generate_phonebooks_pbx() {
-	if [ $create_yealink == "YES" ]; then
+	if [ "$create_yealink" == "YES" ]; then
 	  output_file1="/www/phonebook_yealink_pbx.xml"
 	  echo "<YealinkIPPhoneDirectory>" > "$output_file1"
 	fi
-	if [ $create_cisco == "YES" ]; then
+	if [ "$create_cisco" == "YES" ]; then
 	  output_file2="/www/phonebook_cisco_pbx.xml"
 	  echo "<CiscoIPPhoneDirectory>" > "$output_file2"
 	fi
-	if [ $create_noname == "YES" ]; then
+	if [ "$create_noname" == "YES" ]; then
 	  output_file3="/www/phonebook_noname_pbx.xml"
 	  echo "<GigasetIPPhoneDirectory>" > "$output_file3"
 	fi
-	if [ $create_snom == "YES" ]; then
+	if [ "$create_snom" == "YES" ]; then
 	  output_file4="/www/phonebook_snom_pbx.xml"
 	  echo "<SnomIPPhoneDirectory>" > "$output_file4"
 	fi
@@ -124,7 +125,7 @@ generate_phonebooks_pbx() {
 		fi
 
 		# Write the XML structure for file1
-		if [ $create_yealink == "YES" ]; then
+		if [ "$create_yealink" == "YES" ]; then
 		  echo "    <DirectoryEntry>" >> "$output_file1"
 		  echo "        <Name>$name $first_name $callsign</Name>" >> "$output_file1"
 		  echo "        <Telephone>$telephone</Telephone>" >> "$output_file1"
@@ -132,7 +133,7 @@ generate_phonebooks_pbx() {
 		fi
 		
 		# Write the XML structure for file2
-		if [ $create_cisco == "YES" ]; then
+		if [ "$create_cisco" == "YES" ]; then
 		  echo "    <DirectoryEntry>" >> "$output_file2"
 		  echo "        <Name>$name $first_name $callsign</Name>" >> "$output_file2"
 		  echo "        <Telephone>$telephone</Telephone>" >> "$output_file2"
@@ -140,7 +141,7 @@ generate_phonebooks_pbx() {
 		fi
 		
 		# Write the XML structure for file3
-		if [ $create_noname == "YES" ]; then
+		if [ "$create_noname" == "YES" ]; then
 		  echo "    <DirectoryEntry>" >> "$output_file3"
 		  echo "        <Name>$first_name $name $callsign</Name>" >> "$output_file3"
 		  echo "        <Telephone>$telephone</Telephone>" >> "$output_file3"
@@ -148,32 +149,32 @@ generate_phonebooks_pbx() {
 		fi
 		
 		# Write the XML structure for file4
-		if [ $create_snom == "YES" ]; then
+		if [ "$create_snom" == "YES" ]; then
 		  echo "    <DirectoryEntry>" >> "$output_file4"
 		  echo "        <Name>$first_name $name $callsign</Name>" >> "$output_file4"
 		  echo "        <Telephone>$telephone</Telephone>" >> "$output_file4"
 		  echo "    </DirectoryEntry>" >> "$output_file4"
 		fi
-  
+
 	done < "$input_file"
 
 	# Close the XML structure
-	if [ $create_yealink == "YES" ]; then
+	if [ "$create_yealink" == "YES" ]; then
 	  echo "</YealinkIPPhoneDirectory>" >> "$output_file1"
 	  echo "Conversion completed. Output file: $output_file1"
 	fi
 
-	if [ $create_cisco == "YES" ]; then
+	if [ "$create_cisco" == "YES" ]; then
 	  echo "</CiscoIPPhoneDirectory>" >> "$output_file2"
 	  echo "Conversion completed. Output file: $output_file2"
 	fi
 
-	if [ $create_noname == "YES" ]; then
+	if [ "$create_noname" == "YES" ]; then
 	  echo "</GigasetIPPhoneDirectory>" >> "$output_file3"
 	  echo "Conversion completed. Output file: $output_file3"
 	fi
 
-	if [ $create_snom == "YES" ]; then
+	if [ "$create_snom" == "YES" ]; then
 	  echo "</SnomIPPhoneDirectory>" >> "$output_file4"
 	  echo "Conversion completed. Output file: $output_file4"
 	fi
@@ -199,14 +200,16 @@ if [ -d "/arednstack/phonebook" ]
    echo "Directory /arednstack/phonebook exist..."
    else
    mkdir /arednstack/
-   cd /arednstack
+   cd /arednstack || exit
    mkdir phonebook
    echo "/arednstack/phonebook created"
 fi
 echo
 echo
 
-cd /arednstack/phonebook
+cd /arednstack/phonebook || exit
+
+rm /www/*.xml
   
 # Download settings file
 echo "......Download settings file"
@@ -236,6 +239,26 @@ create_cisco=$(grep 'create_cisco=' $SETTINGS_FILE_NAME | awk -F '=' '{print $2}
 create_noname=$(grep 'create_noname=' $SETTINGS_FILE_NAME | awk -F '=' '{print $2}'); create_noname="${create_noname:0:3}"
 create_snom=$(grep 'create_snom=' $SETTINGS_FILE_NAME | awk -F '=' '{print $2}'); create_snom="${create_snom:0:3}"
 echo
+
+# Check if the variable create_yealink exists and create it if not
+if [ -z "${create_snom}" ]; then
+	echo "create_yealink=NO" >> "/arednstack/phonebook/settings.txt"
+fi
+
+# Check if the variable create_cisco exists and create it if not
+if [ -z "${create_snom}" ]; then
+	echo "create_cisco=NO" >> "/arednstack/phonebook/settings.txt"
+fi
+
+# Check if the variable create_noname exists and create it if not
+if [ -z "${create_snom}" ]; then
+	echo "create_noname=NO" >> "/arednstack/phonebook/settings.txt"
+fi
+
+# Check if the variable create_snom exists and create it if not
+if [ -z "${create_snom}" ]; then
+	echo "create_snom=NO" >> "/arednstack/phonebook/settings.txt"
+fi
   
 # Download phonebook.csv
 echo "......Download Phonebook.csv"
@@ -249,7 +272,7 @@ tail "$input_file"
 echo
 echo
 echo "......Create DIRECT-call phonebook"
-if [ $create_directory_direct == "YES" ]; then  
+if [ "$create_directory_direct" == "YES" ]; then  
    generate_phonebooks_direct
    echo "Direct-call phonebook created"
   else
@@ -260,7 +283,7 @@ echo
 echo
  
 echo ".....Create PBX-call phonebook"
-if [ $create_directory_pbx == "YES" ]; then
+if [ "$create_directory_pbx" == "YES" ]; then
 generate_phonebooks_pbx
    echo "Direct-call phonebook created"
   else
