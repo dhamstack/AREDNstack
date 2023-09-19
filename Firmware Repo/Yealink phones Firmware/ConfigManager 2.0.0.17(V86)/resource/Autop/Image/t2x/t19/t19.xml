@@ -1,0 +1,23 @@
+<!--其中programmablekey的顺序严格按照"Softkey1", "Softkey2", "Softkey3", "Softkey4", "Up", "Down", "Left", "Right", "Ok", "Cancal", "CONF", "HOLD", "MUTE", "TRAN" 进行index编号-->
+<!-- -->
+<BitMap dev="T19PE2" version="" >
+	<data LineKeyNum="0"  MemoryKeyNum="0" AccountNum="1" ProgramableKeyNum="11" ExpansionNum="" ExpKeyNum=""/> 
+	<object name="background" bitmap="t19.bmp" commonBtnFile="\resource\Autop\Image\Common\">
+		<ProgramKey>
+		<!--Softkey-->
+			<item name="programmable keys" key="Softkey 1" index="1"  defaultType="28"   top="194" left="313" width="34" high="16" normalbmp="Softkey_normal.bmp" hoverbmp="Softkey_hover.bmp" downbmp="Softkey_down.bmp" note="Click to configure – Soft"/>
+			<item name="programmable keys" key="Softkey 2" index="2"  defaultType="61"   top="194" left="361" width="34" high="16" normalbmp="Softkey_normal.bmp" hoverbmp="Softkey_hover.bmp" downbmp="Softkey_down.bmp" note="Click to configure – Soft"/>
+			<item name="programmable keys" key="Softkey 3" index="3"  defaultType="5" 	 top="194" left="409" width="34" high="16" normalbmp="Softkey_normal.bmp" hoverbmp="Softkey_hover.bmp" downbmp="Softkey_down.bmp" note="Click to configure – Soft"/>
+			<item name="programmable keys" key="Softkey 4" index="4"  defaultType="30"   top="194" left="457" width="34" high="16" normalbmp="Softkey_normal.bmp" hoverbmp="Softkey_hover.bmp" downbmp="Softkey_down.bmp" note="Click to configure – Soft"/>
+			<!--up,down,left,right,ok,cancel-->
+			<item name="programmable keys" key="Up" 		index="5"  defaultType="28" top="228" left="474" width="20" high="20" normalbmp="up_normal.bmp" hoverbmp="up_hover.bmp" downbmp="up_down.bmp" note="Click to configure – UP"/>
+			<item name="programmable keys" key="Down" 	index="6"  defaultType="61" top="293" left="474" width="20" high="20" normalbmp="down_normal.bmp" hoverbmp="down_hover.bmp" downbmp="down_down.bmp" note="Click to configure – DOWN"/>
+			<item name="programmable keys" key="Left" 	index="7"  defaultType="0"  top="260" left="441" width="20" high="20" normalbmp="left_normal.bmp" hoverbmp="left_hover.bmp" downbmp="left_down.bmp" note="Click to configure – LEFT"/>
+			<item name="programmable keys" key="Right"  index="8"  defaultType="0"  top="260" left="506" width="20" high="20" normalbmp="right_normal.bmp" hoverbmp="right_hover.bmp" downbmp="right_down.bmp" note="Click to configure – RIGHT"/>
+			<item name="programmable keys" key="OK" 		index="9"  defaultType="33" top="260" left="474" width="20" high="20" normalbmp="ok_normal.bmp" hoverbmp="ok_hover.bmp" downbmp="ok_down.bmp" note="Click to configure – OK"/>
+			<!--mute, tran-->
+			<item name="programmable keys" key="MUTE" index="13"  defaultType="0"  top="327" left="451" width="25" high="25" normalbmp="mute_normal.bmp" hoverbmp="mute_hover.bmp" downbmp="mute_down.bmp" note="Click to configure – MUTE"/>
+			<item name="programmable keys" key="TRAN" index="14"  defaultType="0"  top="368" left="451" width="25" high="25" normalbmp="tran_normal.bmp" hoverbmp="tran_hover.bmp" downbmp="tran_down.bmp" note="Click to configure – TRAN"/>
+		</ProgramKey>
+	</object>
+</BitMap>

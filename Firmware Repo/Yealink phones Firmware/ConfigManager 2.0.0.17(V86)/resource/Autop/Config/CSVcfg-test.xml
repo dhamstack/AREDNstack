@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+此配置文档主要用于CSV CFG界面加载标题，及用于生成对应的autop语句。
+series用于存放机型，配置主要分两个层内容：object节点及item节点，
+title内容只显示rang有值的object以及所有的item项，同时可以根据no_sup_devs中的内容作为不显示的机型的条件。
+生成autop语句的原则和autopTranslator.xml一样。
+目前对应可用于用户自主配置的title个数限制为最多配置49个。
+-->
+<CSVconfig version="0.0.0.1" dev="">
+	<series name="T2X">T19PE2,T21PE2,T23G,T27P,T22P,T26P,T28P</series>
+	<series name="T4X">T41P,T42G,T29G,T46G,T48G</series>
+	<series name="VPX">VP530</series>
+	<object name="account" range="1-16" no_sup_devs="">
+		<item name="label" range="" no_sup_devs=""/>
+		<item name="display_name" range="" no_sup_devs=""/>
+		<item name="user_name" range="" no_sup_devs=""/>
+		<item name="auth_name" range="" no_sup_devs=""/>
+		<item name="password" range="" no_sup_devs=""/>
+		<item name="enable" range="" no_sup_devs=""/>
+		<item name="sip_server.1.address" range="" no_sup_devs=""/>
+		<item name="sip_server.2.address" range="" no_sup_devs=""/>
+		<!--<object name="sip_server" range="1-2" no_sup_devs="">		
+			<item name="address" range="" no_sup_devs=""/>
+		</object>-->
+	</object>
+</CSVconfig>
+                            

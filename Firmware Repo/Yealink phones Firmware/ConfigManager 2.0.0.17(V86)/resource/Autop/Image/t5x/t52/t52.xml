@@ -1,0 +1,36 @@
+<!--其中programmablekey的顺序严格按照"SoftKey1", "SoftKey2", "SoftKey3", "SoftKey4", "Up", "Down", "Left", "Right", "Ok", "Cancal", "CONF", "HOLD", "MUTE", "TRAN" 进行index编号-->
+<!-- -->
+<BitMap dev="T52S" version="" >
+	<data  LineKeyNum="21"  MemoryKeyNum="0" AccountNum="16" ProgramableKeyNum="11" ExpansionNum="6" ExpKeyNum="40"/> 
+	<object name="background" bitmap="t52.bmp" commonBtnFile="\resource\Autop\Image\t5x\Common\">
+		<!--linekey-->
+		<LineKey>
+			<item name="linekey"  key="Linkey 1"  index="1"  defaultType="15"  top="97"  left="344" width="31" high="12" normalbmp="linekey_left_normal.bmp"  hoverbmp="linekey_left_hover.bmp"  downbmp="linekey_left_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 2"  index="2"  defaultType="15"  top="116"  left="344" width="31" high="12" normalbmp="linekey_left_normal.bmp"  hoverbmp="linekey_left_hover.bmp"  downbmp="linekey_left_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 3"  index="3"  defaultType="15"  top="134" left="344" width="31" high="12" normalbmp="linekey_left_normal.bmp"  hoverbmp="linekey_left_hover.bmp"  downbmp="linekey_left_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 4"  index="4"  defaultType="15"  top="152" left="344" width="31" high="12" normalbmp="linekey_left_normal.bmp"  hoverbmp="linekey_left_hover.bmp"  downbmp="linekey_left_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 5"  index="5"  defaultType="15"  top="96" left="546" width="31" high="12" normalbmp="linekey_right_normal.bmp"  hoverbmp="linekey_right_hover.bmp"  downbmp="linekey_right_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 6"  index="6"  defaultType="15"  top="116"  left="546" width="31" high="12" normalbmp="linekey_right_normal.bmp" hoverbmp="linekey_right_hover.bmp" downbmp="linekey_right_down.bmp"  note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 7"  index="7"  defaultType="0"   top="133"  left="546" width="31" high="12" normalbmp="linekey_right_normal.bmp" hoverbmp="linekey_right_hover.bmp" downbmp="linekey_right_down.bmp"  note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 8"  index="8"  defaultType="0"   top="152" left="546" width="31" high="12" normalbmp="linekey_right_normal.bmp" hoverbmp="linekey_right_hover.bmp" downbmp="linekey_right_down.bmp"  note="Click to configure – LineKey"/>
+		</LineKey>
+		<ProgramKey>
+		<!--softkey-->
+			<item name="programmable keys" key="Softkey 1" index="1" defaultType="28" top="190" left="392" width="28" high="12" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure – Soft"/>
+			<item name="programmable keys" key="Softkey 2" index="2" defaultType="61" top="190" left="430" width="28" high="12" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure – Soft"/>
+			<item name="programmable keys" key="Softkey 3" index="3" defaultType="5"  top="190" left="466" width="28" high="12" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure – Soft"/>
+			<item name="programmable keys" key="Softkey 4" index="4" defaultType="30" top="190" left="503" width="28" high="12" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure – Soft"/>
+	
+			<!--up,down,left,right,ok,cancel-->
+			<item name="programmable keys" key="Up"		 	index="5"  defaultType="28" top="265" left="336" width="22" high="20" normalbmp="up_normal.bmp"     hoverbmp="up_hover.bmp" 		 downbmp="up_down.bmp" 		 note="Click to configure – Up"/>
+			<item name="programmable keys" key="Down"	 	index="6"  defaultType="61" top="306" left="336" width="22" high="20" normalbmp="down_normal.bmp"   hoverbmp="down_hover.bmp"   downbmp="down_down.bmp" 	 note="Click to configure – Down"/>
+			<item name="programmable keys" key="Left"  		index="7"  defaultType="0"  top="285" left="306" width="22" high="20" normalbmp="left_normal.bmp"   hoverbmp="left_hover.bmp" 	 downbmp="left_down.bmp" 	 note="Click to configure – Left"/>
+			<item name="programmable keys" key="Right" 		index="8"  defaultType="0"  top="285" left="364" width="22" high="20" normalbmp="right_normal.bmp"  hoverbmp="right_hover.bmp"  downbmp="right_down.bmp"  note="Click to configure – Right"/>
+			<item name="programmable keys" key="OK" 	 	index="9"  defaultType="33" top="285" left="335" width="22" high="20" normalbmp="ok_normal.bmp" 		 hoverbmp="ok_hover.bmp" 		 downbmp="ok_down.bmp" 		 note="Click to configure – Ok"/>
+			<item name="programmable keys" key="Cancel" 	index="10" defaultType="0"  top="330" left="336" width="22" high="20" normalbmp="cancel_normal.bmp" hoverbmp="cancel_hover.bmp" downbmp="cancel_down.bmp" note="Click to configure – Cancel"/>
+			
+			<!-- Mute-->
+			<item name="programmable keys" key="MUTE" index="13" defaultType="0" top="259" left="557" width="26" high="20" normalbmp="mute_normal.bmp" hoverbmp="mute_hover.bmp" downbmp="mute_down.bmp" note="Click to configure – MUTE"/>
+		</ProgramKey>
+	</object>
+</BitMap>

@@ -1,0 +1,61 @@
+<!--其中programmablekey的顺序严格按照"SoftKey1", "SoftKey2", "SoftKey3", "SoftKey4", "Up", "Down", "Left", "Right", "Ok", "Cancal", "CONF", "HOLD", "MUTE", "TRAN" 进行index编号-->
+<!-- -->
+<BitMap dev="T48S" version="" >
+	<data  LineKeyNum="29"  MemoryKeyNum="0" AccountNum="16" ProgramableKeyNum="20" ExpansionNum="6" ExpKeyNum="40"/> 
+	<object name="background" bitmap="t48s.bmp" commonBtnFile="\resource\Autop\Image\t4x\Common\">
+		<!--linekey-->
+		<LineKey>
+			<item name="linekey"  key="Linkey 1"  index="1"   defaultType="15" 	 top="65"  left="221" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 2"  index="2"   defaultType="15"   top="86"  left="221" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 3"  index="3"   defaultType="15"   top="107" left="221" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 4"  index="4"   defaultType="15"   top="128" left="221" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 5"  index="5"   defaultType="15"   top="150" left="221" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 6"  index="6"   defaultType="15"   top="171" left="221" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 7"  index="7"   defaultType="0"    top="65"  left="480" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 8"  index="8"   defaultType="0"    top="86"  left="480" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 9"  index="9"   defaultType="0"    top="107" left="480" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 10" index="10"  defaultType="0"    top="128" left="480" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 11" index="11"  defaultType="0" 	 top="150" left="480" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 12" index="12"  defaultType="0"    top="65"  left="286" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 20" index="20"  defaultType="0"    top="86"  left="286" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 14" index="14"  defaultType="0"    top="107" left="286" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 15" index="15"  defaultType="0"    top="128" left="286" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 16" index="16"  defaultType="0"    top="150" left="286" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 17" index="17"  defaultType="0"    top="171" left="286" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 18" index="18"  defaultType="0"    top="65"  left="351" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 19" index="19"  defaultType="0"    top="86"  left="351" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 20" index="20"  defaultType="0"    top="107" left="351" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 21" index="21"  defaultType="0" 	 top="128" left="351" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 22" index="22"  defaultType="0"    top="150" left="351" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 23" index="23"  defaultType="0"    top="171" left="351" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 24" index="24"  defaultType="0"    top="65"  left="415" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 25" index="25"  defaultType="0"    top="86"  left="415" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 26" index="26"  defaultType="0"    top="107" left="415" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 27" index="27"  defaultType="0"    top="128" left="415" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 28" index="28"  defaultType="0"    top="150" left="415" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+			<item name="linekey"  key="Linkey 29" index="29"  defaultType="0"    top="171" left="415" width="62" high="20" normalbmp="DSS key_normal.bmp"  hoverbmp="DSS key_hover.bmp"  downbmp="DSS key_down.bmp"   note="Click to configure – DssKey"/>
+		</LineKey>
+		<ProgramKey>
+		<!--softkey-->
+			<item name="programmable keys" key="Softkey 1" index="1" defaultType="28" top="193" left="298" width="23" high="23" normalbmp="Softkey call log_normal.bmp" hoverbmp="Softkey call log_hover.bmp" downbmp="Softkey call log_normal.bmp" note="Click to configure – Soft"/>
+			<item name="programmable keys" key="Softkey 2" index="2" defaultType="61" top="193" left="347" width="23" high="23" normalbmp="softkeyDirectory_normal.bmp" hoverbmp="softkeyDirectory_hover.bmp" downbmp="softkeyDirectory_normal.bmp" note="Click to configure – Soft"/>
+			<item name="programmable keys" key="Softkey 3" index="3" defaultType="5"  top="193" left="395" width="23" high="23" normalbmp="softkeyDND_normal.bmp" hoverbmp="softkeyDND_hover.bmp" downbmp="softkeyDND_normal.bmp" note="Click to configure – Soft"/>
+			<item name="programmable keys" key="Softkey 4" index="4" defaultType="30" top="193" left="443" width="23" high="23" normalbmp="softkeyMenu_normal.bmp" hoverbmp="softkeyMenu_hover.bmp" downbmp="softkeyMenu_normal.bmp" note="Click to configure – Soft"/>
+	
+			<!--up,down,left,right,ok,cancel-->
+			<item name="programmable keys" key="Up"		 	index="5"  defaultType="28" top="273" left="405" width="18" high="18" normalbmp="up_normal.bmp"     hoverbmp="up_hover.bmp" 		 downbmp="up_down.bmp" 		 note="Click to configure – Up"/>
+			<item name="programmable keys" key="Down"	 	index="6"  defaultType="61" top="331" left="405" width="18" high="18" normalbmp="down_normal.bmp"   hoverbmp="down_hover.bmp"   downbmp="down_down.bmp" 	 note="Click to configure – Down"/>
+			<item name="programmable keys" key="Left"  	index="7"  top="302" left="376" width="18" high="18" normalbmp="left_normal.bmp"   hoverbmp="left_hover.bmp" 	 downbmp="left_down.bmp" 	 note="Click to configure – Left"/>
+			<item name="programmable keys" key="Right" 	index="8"  top="302" left="433" width="18" high="18" normalbmp="right_normal.bmp"  hoverbmp="right_hover.bmp"  downbmp="right_down.bmp"  note="Click to configure – Right"/>
+			<item name="programmable keys" key="OK" 	 	index="9"  defaultType="33" top="302" left="405" width="18" high="18" normalbmp="ok_normal.bmp" 		 hoverbmp="ok_hover.bmp" 		 downbmp="ok_down.bmp" 		 note="Click to configure – Ok"/>
+			<item name="programmable keys" key="Cancel" index="10" top="362" left="405" width="18" high="18" normalbmp="cancel_normal.bmp" hoverbmp="cancel_hover.bmp" downbmp="cancel_down.bmp" note="Click to configure – Cancel"/>
+			
+			<!-- Hold,Mute,Tran-->
+			<item name="programmable keys" key="HOLD" index="12" top="320" left="528" width="24" high="22" normalbmp="hold_normal.bmp" hoverbmp="hold_hover.bmp" downbmp="hold_down.bmp" note="Click to configure – HOLD"/>
+			<item name="programmable keys" key="MUTE" index="13" top="283" left="527" width="25" high="24" normalbmp="mute_normal.bmp" hoverbmp="mute_hover.bmp" downbmp="mute_down.bmp" note="Click to configure – MUTE"/>
+			<item name="programmable keys" key="TRAN" index="14" top="358" left="528" width="24" high="22" normalbmp="tran_normal.bmp" hoverbmp="tran_hover.bmp" downbmp="tran_down.bmp" note="Click to configure – TRAN"/>
+			<item name="programmable keys" key="Redial" index="17" defaultType="0" top="359" left="492" width="24" high="20" normalbmp="redial_normal.bmp" hoverbmp="redial_hover.bmp" downbmp="redial_hover.bmp" note="Click to configure – Redial"/>
+			<item name="programmable keys" key="Message" index="18" defaultType="0" top="320" left="492" width="24" high="20" normalbmp="message_normal.bmp" hoverbmp="message_hover.bmp" downbmp="message_hover.bmp" note="Click to configure – Message"/>
+		</ProgramKey>
+	</object>
+</BitMap>

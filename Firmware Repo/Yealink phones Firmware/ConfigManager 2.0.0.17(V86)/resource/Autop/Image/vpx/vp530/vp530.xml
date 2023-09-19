@@ -1,0 +1,40 @@
+<!--其中programmablekey的顺序严格按照"SoftKey1", "SoftKey2", "SoftKey3", "SoftKey4", "Up", "Down", "Left", "Right", "Ok", "Cancal", "CONF", "HOLD", "MUTE", "TRAN" 进行index编号-->
+<BitMap dev="VP530" version="">
+	<data  LineKeyNum="4"  MemoryKeyNum="18" AccountNum="4" ProgramableKeyNum="0" ExpansionNum="" ExpKeyNum=""/>
+	<object name="background" bitmap="vp530.bmp"  commonBtnFile="\resource\Autop\Image\vpx\Common\">
+		<LineKey>
+			<!--lienkey1,lienkey2,lienkey3,lienkey4-->
+			<item name="linekey" key="Linkey 1" index="1" defaultType="15" 	top="160" left="463" width="78" high="21" normalbmp="linekey1_normal.bmp" hoverbmp="linekey1_hover.bmp" downbmp="linekey1_normal.bmp" note="Click to configure – Line"/>
+			<item name="linekey" key="Linkey 2" index="2" defaultType="15" 	top="183" left="463" width="78" high="21" normalbmp="linekey2_normal.bmp" hoverbmp="linekey2_hover.bmp" downbmp="linekey2_normal.bmp" note="Click to configure – Line"/>
+			<item name="linekey" key="Linkey 3" index="3" defaultType="15" 	top="207" left="463" width="78" high="21" normalbmp="linekey3_normal.bmp" hoverbmp="linekey3_hover.bmp" downbmp="linekey3_normal.bmp" note="Click to configure – Line"/>
+			<item name="linekey" key="Linkey 4" index="4" defaultType="15" 	top="230" left="463" width="78" high="21" normalbmp="linekey4_normal.bmp" hoverbmp="linekey4_hover.bmp" downbmp="linekey4_normal.bmp" note="Click to configure – Line"/>
+		</LineKey>
+<!--		<ProgramKey>
+		<item name="programmable keys" index="1" top="254" left="218" width="77" high="21" normalbmp="softHistory_normal.bmp" hoverbmp="softHistory_hover.bmp" downbmp="softHistory_normal.bmp" note="Click to configure – Soft"/>
+		<item name="programmable keys" index="2" top="254" left="300" width="77" high="21" normalbmp="softDirectory_normal.bmp" hoverbmp="softDirectory_hover.bmp" downbmp="softDirectory_normal.bmp" note="Click to configure – Soft"/>
+		<item name="programmable keys" index="3" top="254" left="381" width="77" high="21" normalbmp="softDND_normal.bmp" hoverbmp="softDND_hover.bmp" downbmp="softDND_normal.bmp" note="Click to configure – Soft"/>
+		<item name="programmable keys" index="4" top="254" left="463" width="77" high="21" normalbmp="softMenu_normal.bmp" hoverbmp="softMenu_hover.bmp" downbmp="softMenu_normal.bmp" note="Click to configure – Soft"/>
+		</ProgramKey>-->
+		<MemoryKey>
+			<!--memorykey--> 
+			<item name="memorykey" key="Memorykey 1"  index="1"  defaultType="0" 	 top="111" left="218" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 2"  index="2"  top="135" left="218" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 3"  index="3"  top="158" left="218" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 4"  index="4"  top="182" left="218" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 5"  index="5"  top="206" left="218" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 6"  index="6"  top="230" left="218" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 7"  index="7"  top="111" left="299" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 8"  index="8"  top="135" left="299" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 9"  index="9"  top="158" left="299" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 10" index="10" top="182" left="299" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 11" index="11" top="206" left="299" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 12" index="12" top="230" left="299" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 13" index="13" top="111" left="380" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 14" index="14" top="135" left="380" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 15" index="15" top="158" left="380" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 16" index="16" top="182" left="380" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 17" index="17" top="206" left="380" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+			<item name="memorykey" key="Memorykey 18" index="18" top="230" left="380" width="78" high="22" normalbmp="memorykey_normal.bmp" hoverbmp="memorykey_hover.bmp" downbmp="memorykey_normal.bmp" note="Click to configure – Memory"/>
+		</MemoryKey>
+	</object>
+</BitMap>

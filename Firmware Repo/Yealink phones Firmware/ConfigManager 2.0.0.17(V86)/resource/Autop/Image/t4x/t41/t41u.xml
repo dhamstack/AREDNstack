@@ -1,0 +1,33 @@
+<!-- -->
+<BitMap dev="T41U" version="" >
+	<data LineKeyNum = "15"  MemoryKeyNum="0" AccountNum = "6" ProgramableKeyNum="11"/> 
+	<object name="background" bitmap="t41u.bmp" commonBtnFile="Common">
+		<!--linekey-->
+		<LineKey>
+			<item name="linekey" key="LineKey1" index="1" top="109" left="279" width="31" high="12" normalbmp="linekey_left_normal.bmp" hoverbmp="linekey_left_hover.bmp" downbmp="linekey_left_down.bmp" note="Click to configure 每 Line"/>
+			<item name="linekey" key="LineKey2" index="2" top="130" left="279" width="31" high="12" normalbmp="linekey_left_normal.bmp" hoverbmp="linekey_left_hover.bmp" downbmp="linekey_left_down.bmp" note="Click to configure 每 Line"/>
+			<item name="linekey" key="LineKey3" index="3" top="151" left="279" width="31" high="12" normalbmp="linekey_left_normal.bmp" hoverbmp="linekey_left_hover.bmp" downbmp="linekey_left_down.bmp" note="Click to configure 每 Line"/>
+			<item name="linekey" key="LineKey4" index="4" top="109" left="493" width="31" high="12" normalbmp="linekey_right_normal.bmp" hoverbmp="linekey_right_hover.bmp" downbmp="linekey_right_down.bmp" note="Click to configure 每 Line"/>
+			<item name="linekey" key="LineKey5" index="5" top="130" left="493" width="31" high="12" normalbmp="linekey_right_normal.bmp" hoverbmp="linekey_right_hover.bmp" downbmp="linekey_right_down.bmp" note="Click to configure 每 Line"/>
+			<item name="linekey" key="LineKey6" index="6" top="151" left="493" width="31" high="12" normalbmp="linekey_right_normal.bmp" hoverbmp="linekey_right_hover.bmp" downbmp="linekey_right_down.bmp" note="Click to configure 每 Line"/>
+		</LineKey>
+		<MemoryKey>
+		</MemoryKey>
+		<ProgramKey>
+		<!--softkey-->
+			<item name="programmable keys" key="SoftKey1" index="1" top="190" left="332" width="31" high="13" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure 每 Soft"/>
+			<item name="programmable keys" key="SoftKey2" index="2" top="190" left="368" width="31" high="13" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure 每 Soft"/>
+			<item name="programmable keys" key="SoftKey3" index="3" top="190" left="404" width="31" high="13" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure 每 Soft"/>
+			<item name="programmable keys" key="SoftKey4" index="4" top="190" left="441" width="31" high="13" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure 每 Soft"/>
+			<!--up,down,left,right,ok,cancel-->
+			<item name="programmable keys" key="UP" 		index="5"  top="255" left="442" width="19" high="19" normalbmp="up_normal.bmp" hoverbmp="up_hover.bmp" downbmp="up_down.bmp" note="Click to configure 每 Up"/>
+			<item name="programmable keys" key="DOWM" 	index="6"  top="317" left="442" width="19" high="19" normalbmp="down_normal.bmp" hoverbmp="down_hover.bmp" downbmp="down_down.bmp" note="Click to configure 每 Down"/>
+			<item name="programmable keys" key="LEFT" 	index="7"  top="286" left="411" width="19" high="19" normalbmp="left_normal.bmp" hoverbmp="left_hover.bmp" downbmp="left_down.bmp" note="Click to configure 每 Left"/>
+			<item name="programmable keys" key="RIGHT"  index="8"  top="286" left="473" width="19" high="19" normalbmp="right_normal.bmp" hoverbmp="right_hover.bmp" downbmp="right_down.bmp" note="Click to configure 每 Right"/>
+			<item name="programmable keys" key="OK" 		index="9"  top="286" left="442" width="19" high="19" normalbmp="ok_normal.bmp" hoverbmp="ok_hover.bmp" downbmp="ok_down.bmp" note="Click to configure 每 OK"/>
+			<item name="programmable keys" key="CANCEL" index="10" top="351" left="442" width="19" high="19" normalbmp="cancel_normal.bmp" hoverbmp="cancel_hover.bmp" downbmp="cancel_down.bmp" note="Click to configure 每 Cancel"/>
+			<!--conf, tran, conf-->
+			<item name="programmable keys" key="MUTE" index="11" top="255" left="514" width="27" high="26" normalbmp="mute_normal.bmp" hoverbmp="mute_hover.bmp" downbmp="mute_down.bmp" note="Click to configure 每 Mute"/>
+		</ProgramKey>
+	</object>
+</BitMap>

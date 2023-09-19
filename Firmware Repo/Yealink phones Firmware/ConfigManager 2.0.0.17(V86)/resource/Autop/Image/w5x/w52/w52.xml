@@ -1,0 +1,7 @@
+<!--其中programmablekey的顺序严格按照"Softkey1", "Softkey2", "Softkey3", "Softkey4", "Up", "Down", "Left", "Right", "Ok", "Cancal", "CONF", "HOLD", "MUTE", "TRAN" 进行index编号-->
+<!-- -->
+<BitMap dev="DECT" version="" >
+	<data LineKeyNum="0"  MemoryKeyNum="0" AccountNum="5" ProgramableKeyNum="0" ExpansionNum="" ExpKeyNum=""/> 
+	<object name="background" bitmap="w52.bmp" commonBtnFile="\resource\Autop\Image\Common\">
+	</object>
+</BitMap>

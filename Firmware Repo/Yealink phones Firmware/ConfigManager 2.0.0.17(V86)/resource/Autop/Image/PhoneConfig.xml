@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<phoneconfig version="" defaultDev="T48G" commondir="\resource\Autop\Image\Common\" commonpic="NoPic.bmp">
+	<item dev="T19PE2" version="0.0.0.1" dir="\resource\Autop\Image\t2x\t19\" config="t19.xml" pic="t19.bmp" autopres="\resource\Config\V84-sp4.res" />
+	<item dev="T21PE2" version="0.0.0.1" dir="\resource\Autop\Image\t2x\t21e2\" config="t21e2.xml" pic="t21.bmp" autopres="\resource\Config\V84-sp4.res" />
+	<item dev="T22P" version="0.0.0.1" dir="\resource\Autop\Image\t2x\t22\" config="t22.xml" pic="t22.bmp" autopres="\resource\Config\T2xOld.res" />
+	<item dev="T23G" version="0.0.0.1" dir="\resource\Autop\Image\t2x\t23\" config="t23.xml" pic="t23.bmp" autopres="\resource\Config\V84-sp4.res" />
+	<item dev="T26P" version="0.0.0.1" dir="\resource\Autop\Image\t2x\t26\" config="t26.xml" pic="t26.bmp" autopres="\resource\Config\T2xOld.res" />
+	<item dev="T27P" version="0.0.0.1" dir="\resource\Autop\Image\t2x\t27\" config="t27.xml" pic="t27.bmp" autopres="\resource\Config\V84.res" />
+	<item dev="T28P" version="0.0.0.1" dir="\resource\Autop\Image\t2x\t28\" config="t28.xml" pic="t28.bmp" autopres="\resource\Config\T2xOld.res" />
+	<item dev="T29G" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t29\" config="t29.xml" pic="t29.bmp" autopres="\resource\Config\V84-sp4.res" />
+	<item dev="T30" version="0.0.0.1" dir="\resource\Autop\Image\t3x\t30\" config="t30.xml" pic="t30.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T30P" version="0.0.0.1" dir="\resource\Autop\Image\t3x\t30\" config="t30p.xml" pic="t30.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T31" version="0.0.0.1" dir="\resource\Autop\Image\t3x\t31\" config="t31.xml" pic="t31.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T31G" version="0.0.0.1" dir="\resource\Autop\Image\t3x\t31\" config="t31g.xml" pic="t31.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T31P" version="0.0.0.1" dir="\resource\Autop\Image\t3x\t31\" config="t31p.xml" pic="t31.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T33P" version="0.0.0.1" dir="\resource\Autop\Image\t3x\t33\" config="t33p.xml" pic="t33.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T33G" version="0.0.0.1" dir="\resource\Autop\Image\t3x\t33\" config="t33g.xml" pic="t33.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T40G" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t40\" config="t40.xml" pic="t40.bmp" autopres="\resource\Config\V84-sp4.res" />
+	<item dev="T41P" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t41\" config="t41.xml" pic="t41.bmp" autopres="\resource\Config\V84-sp4.res" />
+	<item dev="T41S" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t41\" config="t41s.xml" pic="t41s.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T42G" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t42\" config="t42.xml" pic="t42.bmp" autopres="\resource\Config\V84-sp4.res" />
+	<item dev="T42S" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t42\" config="t42s.xml" pic="t42s.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T42U" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t42\" config="t42u.xml" pic="t42u.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T43U" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t43\" config="t43u.xml" pic="t43u.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T46G" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t46\" config="t46.xml" pic="t46.bmp" autopres="\resource\Config\V84-sp4.res" />
+	<item dev="T46S" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t46\" config="t46s.xml" pic="t46s.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T46U" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t46\" config="t46u.xml" pic="t46u.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T48G" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t48\" config="t48.xml" pic="t48.bmp" autopres="\resource\Config\V84-sp4.res" />
+	<item dev="T48S" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t48\" config="t48s.xml" pic="t48s.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T48U" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t48\" config="t48u.xml" pic="t48u.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T49G" version="0.0.0.1" dir="\resource\Autop\Image\t4x\t49\" config="t49.xml" pic="t49.bmp" autopres="\resource\Config\V80.res" />
+	<item dev="T52S" version="0.0.0.1" dir="\resource\Autop\Image\t5x\t52\" config="t52.xml" pic="t52.bmp" autopres="\resource\Config\V84.res" />
+	<item dev="T53" version="0.0.0.1" dir="\resource\Autop\Image\t5x\t53\" config="t53.xml" pic="t53.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T53W" version="0.0.0.1" dir="\resource\Autop\Image\t5x\t53\" config="t53w.xml" pic="t53.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T54S" version="0.0.0.1" dir="\resource\Autop\Image\t5x\t54\" config="t54.xml" pic="t54.bmp" autopres="\resource\Config\V84.res" />
+	<item dev="T54W" version="0.0.0.1" dir="\resource\Autop\Image\t5x\t54\" config="t54w.xml" pic="t54.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T56A" version="0.0.0.1" dir="\resource\Autop\Image\t5x\t56\" config="t56.xml" pic="t56.bmp" autopres="\resource\Config\V84-and.res" />
+	<item dev="T57W" version="0.0.0.1" dir="\resource\Autop\Image\t5x\t57\" config="t57.xml" pic="t57.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="T58A" version="0.0.0.1" dir="\resource\Autop\Image\t5x\t58\" config="t58.xml" pic="t58.bmp" autopres="\resource\Config\V86.res" />
+	<item dev="VP530" version="0.0.0.1" dir="\resource\Autop\Image\vpx\vp530\" config="vp530.xml" pic="vp530.bmp" autopres="\resource\Config\VPx.res" last="V70" />
+	<item dev="VP59" version="0.0.0.1" dir="\resource\Autop\Image\vpx\vp59\" config="vp59.xml" pic="vp59.bmp" autopres="\resource\Config\V85-Android.res" />
+	<item dev="DECT" version="0.0.0.1" dir="\resource\Autop\Image\w5x\w52\" config="w52.xml" pic="w52.bmp" autopres="\resource\Config\V80-DECT.res" last="" />
+	<item dev="W60B" version="0.0.0.1" dir="\resource\Autop\Image\wxb\w60b\" config="w60b.xml" pic="w60b.bmp" autopres="\resource\Config\V86.res" last="" />
+	<item dev="W80B" version="0.0.0.1" dir="\resource\Autop\Image\wxb\w80b\" config="w80b.xml" pic="w80b.bmp" autopres="\resource\Config\V86.res" last="" />
+	<item dev="W90B" version="0.0.0.1" dir="\resource\Autop\Image\wxb\w90b\" config="w90b.xml" pic="w90b.bmp" autopres="\resource\Config\V86.res" last="" />
+</phoneconfig>

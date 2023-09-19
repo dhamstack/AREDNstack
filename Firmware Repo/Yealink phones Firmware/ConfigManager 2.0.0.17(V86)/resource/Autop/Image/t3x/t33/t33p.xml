@@ -1,0 +1,35 @@
+<!-- -->
+<BitMap dev="T33P" version="" >
+	<data LineKeyNum = "12"  MemoryKeyNum="0" AccountNum = "4" ProgramableKeyNum="18"/> 
+	<object name="background" bitmap="t33.bmp" commonBtnFile="Common">
+		<!--linekey-->
+		<LineKey>
+			<item name="linekey"  key="Linkey 1"  index="1"  defaultType="15"  top="96"  left="530" width="30" high="12" normalbmp="linekey_green_normal.bmp"  hoverbmp="linekey_green_hover.bmp"  downbmp="linekey_green_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 2"  index="2"  defaultType="15"  top="115"  left="530" width="30" high="12" normalbmp="linekey_white_normal.bmp"  hoverbmp="linekey_white_hover.bmp"  downbmp="linekey_white_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 3"  index="3"  defaultType="15"  top="133" left="530" width="30" high="12" normalbmp="linekey_red_normal.bmp"  hoverbmp="linekey_red_hover.bmp"  downbmp="linekey_red_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 4"  index="4"  defaultType="15"  top="150" left="531" width="30" high="12" normalbmp="linekey_green_normal.bmp"  hoverbmp="linekey_green_hover.bmp"  downbmp="linekey_green_down.bmp"   note="Click to configure – LineKey"/>
+		</LineKey>
+		<MemoryKey>
+		</MemoryKey>
+		<ProgramKey>
+		<!--softkey-->
+			<item name="programmable keys" key="SoftKey1" index="1" top="186" left="356" width="32" high="12" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure 每 Soft"/>
+			<item name="programmable keys" key="SoftKey2" index="2" top="186" left="396" width="32" high="12" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure 每 Soft"/>
+			<item name="programmable keys" key="SoftKey3" index="3" top="186" left="436" width="32" high="12" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure 每 Soft"/>
+			<item name="programmable keys" key="SoftKey4" index="4" top="186" left="476" width="32" high="12" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure 每 Soft"/>
+			<!--up,down,left,right,ok,cancel-->
+			<item name="programmable keys" key="UP" 		index="5"  top="235" left="497" width="22" high="22" normalbmp="up_normal.bmp" hoverbmp="up_hover.bmp" downbmp="up_down.bmp" note="Click to configure 每 Up"/>
+			<item name="programmable keys" key="DOWM" 	index="6"  top="295" left="499" width="22" high="22" normalbmp="down_normal.bmp" hoverbmp="down_hover.bmp" downbmp="down_down.bmp" note="Click to configure 每 Down"/>
+			<item name="programmable keys" key="LEFT" 	index="7"  top="265" left="465" width="22" high="22" normalbmp="left_normal.bmp" hoverbmp="left_hover.bmp" downbmp="left_down.bmp" note="Click to configure 每 Left"/>
+			<item name="programmable keys" key="RIGHT"  index="8"  top="265" left="529" width="22" high="22" normalbmp="right_normal.bmp" hoverbmp="right_hover.bmp" downbmp="right_down.bmp" note="Click to configure 每 Right"/>
+			<item name="programmable keys" key="OK" 		index="9"  top="265" left="498" width="22" high="22" normalbmp="ok_normal.bmp" hoverbmp="ok_hover.bmp" downbmp="ok_down.bmp" note="Click to configure 每 OK"/>
+			<item name="programmable keys" key="Cancel" index="10" defaultType="0"  top="327" left="500" width="22" high="22" normalbmp="cancel_normal.bmp" hoverbmp="cancel_hover.bmp" downbmp="cancel_down.bmp" note="Click to configure – Cancel"/>
+			
+			<!--conf, tran, conf-->
+			<item name="programmable keys" key="MUTE" index="13" top="235" left="571" width="26" high="26" normalbmp="mute_normal.bmp" hoverbmp="mute_hover.bmp" downbmp="mute_down.bmp" note="Click to configure 每 Mute"/>
+			<item name="programmable keys" key="Redial" index="17" defaultType="0" top="327" left="573" width="28" high="24" normalbmp="redial_normal.bmp" hoverbmp="redial_hover.bmp" downbmp="redial_hover.bmp" note="Click to configure – Redial"/>
+			<item name="programmable keys" key="Message" index="18" defaultType="0" top="296" left="573" width="28" high="24" normalbmp="message_normal.bmp" hoverbmp="message_hover.bmp" downbmp="message_hover.bmp" note="Click to configure – Message"/>
+
+		</ProgramKey>
+	</object>
+</BitMap>

@@ -1,0 +1,40 @@
+<!--其中programmablekey的顺序严格按照"SoftKey1", "SoftKey2", "SoftKey3", "SoftKey4", "Up", "Down", "Left", "Right", "Ok", "Cancal", "CONF", "HOLD", "MUTE", "TRAN" 进行index编号-->
+<!-- -->
+<BitMap dev="T46G" version="" >
+	<data  LineKeyNum="27"  MemoryKeyNum="0" AccountNum="16" ProgramableKeyNum="13" ExpansionNum="6" ExpKeyNum="40"/> 
+	<object name="background" bitmap="t46.bmp" commonBtnFile="\resource\Autop\Image\t4x\Common\">
+		<!--linekey-->
+		<LineKey>
+			<item name="linekey"  key="Linkey 1"  index="1"  defaultType="15"  top="78"  left="241" width="31" high="13" normalbmp="linekey_left_normal.bmp"  hoverbmp="linekey_left_hover.bmp"  downbmp="linekey_left_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 2"  index="2"  defaultType="15"  top="97"  left="241" width="31" high="13" normalbmp="linekey_left_normal.bmp"  hoverbmp="linekey_left_hover.bmp"  downbmp="linekey_left_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 3"  index="3"  defaultType="15"  top="117" left="241" width="31" high="13" normalbmp="linekey_left_normal.bmp"  hoverbmp="linekey_left_hover.bmp"  downbmp="linekey_left_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 4"  index="4"  defaultType="15"  top="137" left="241" width="31" high="13" normalbmp="linekey_left_normal.bmp"  hoverbmp="linekey_left_hover.bmp"  downbmp="linekey_left_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 5"  index="5"  defaultType="15"  top="156" left="241" width="31" high="13" normalbmp="linekey_left_normal.bmp"  hoverbmp="linekey_left_hover.bmp"  downbmp="linekey_left_down.bmp"   note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 6"  index="6"  defaultType="15"  top="78"  left="510" width="31" high="13" normalbmp="linekey_right_normal.bmp" hoverbmp="linekey_right_hover.bmp" downbmp="linekey_right_down.bmp"  note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 7"  index="7"  defaultType="0"   top="97"  left="510" width="31" high="13" normalbmp="linekey_right_normal.bmp" hoverbmp="linekey_right_hover.bmp" downbmp="linekey_right_down.bmp"  note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 8"  index="8"  defaultType="0"   top="117" left="510" width="31" high="13" normalbmp="linekey_right_normal.bmp" hoverbmp="linekey_right_hover.bmp" downbmp="linekey_right_down.bmp"  note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 9"  index="9"  defaultType="0"   top="137" left="510" width="31" high="13" normalbmp="linekey_right_normal.bmp" hoverbmp="linekey_right_hover.bmp" downbmp="linekey_right_down.bmp"  note="Click to configure – LineKey"/>
+			<item name="linekey"  key="Linkey 10" index="10" defaultType="0"   top="156" left="510" width="31" high="13" normalbmp="linekey_right_normal.bmp" hoverbmp="linekey_right_hover.bmp" downbmp="linekey_right_down.bmp"  note="Click to configure – LineKey"/>
+		</LineKey>
+		<ProgramKey>
+		<!--softkey-->
+			<item name="programmable keys" key="Softkey 1" index="1" defaultType="28" top="201" left="296" width="31" high="13" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure – Soft"/>
+			<item name="programmable keys" key="Softkey 2" index="2" defaultType="61" top="201" left="348" width="31" high="13" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure – Soft"/>
+			<item name="programmable keys" key="Softkey 3" index="3" defaultType="5"  top="201" left="400" width="31" high="13" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure – Soft"/>
+			<item name="programmable keys" key="Softkey 4" index="4" defaultType="30" top="201" left="452" width="31" high="13" normalbmp="softkey_normal.bmp" hoverbmp="softkey_hover.bmp" downbmp="softkey_down.bmp" note="Click to configure – Soft"/>
+	
+			<!--up,down,left,right,ok,cancel-->
+			<item name="programmable keys" key="Up"		 	index="5"  defaultType="28" top="264" left="414" width="18" high="18" normalbmp="up_normal.bmp"     hoverbmp="up_hover.bmp" 		 downbmp="up_down.bmp" 		 note="Click to configure – Up"/>
+			<item name="programmable keys" key="Down"	 	index="6"  defaultType="61" top="323" left="414" width="18" high="18" normalbmp="down_normal.bmp"   hoverbmp="down_hover.bmp"   downbmp="down_down.bmp" 	 note="Click to configure – Down"/>
+			<item name="programmable keys" key="Left"  	index="7"  defaultType="0"  top="293" left="385" width="18" high="18" normalbmp="left_normal.bmp"   hoverbmp="left_hover.bmp" 	 downbmp="left_down.bmp" 	 note="Click to configure – Left"/>
+			<item name="programmable keys" key="Right" 	index="8"  defaultType="0"  top="293" left="444" width="18" high="18" normalbmp="right_normal.bmp"  hoverbmp="right_hover.bmp"  downbmp="right_down.bmp"  note="Click to configure – Right"/>
+			<item name="programmable keys" key="OK" 	 	index="9"  defaultType="33" top="293" left="414" width="18" high="18" normalbmp="ok_normal.bmp" 		 hoverbmp="ok_hover.bmp" 		 downbmp="ok_down.bmp" 		 note="Click to configure – Ok"/>
+			<item name="programmable keys" key="Cancel" index="10" defaultType="0"  top="354" left="414" width="18" high="18" normalbmp="cancel_normal.bmp" hoverbmp="cancel_hover.bmp" downbmp="cancel_down.bmp" note="Click to configure – Cancel"/>
+			
+			<!-- Hold,Mute,Tran-->
+			<item name="programmable keys" key="HOLD" index="12" defaultType="0" top="310" left="528" width="25" high="23" normalbmp="hold_normal.bmp" hoverbmp="hold_hover.bmp" downbmp="hold_down.bmp" note="Click to configure – HOLD"/>
+			<item name="programmable keys" key="MUTE" index="13" defaultType="0" top="273" left="528" width="25" high="25" normalbmp="mute_normal.bmp" hoverbmp="mute_hover.bmp" downbmp="mute_down.bmp" note="Click to configure – MUTE"/>
+			<item name="programmable keys" key="TRAN" index="14" defaultType="0" top="349" left="528" width="25" high="23" normalbmp="tran_normal.bmp" hoverbmp="tran_hover.bmp" downbmp="tran_down.bmp" note="Click to configure – TRAN"/>
+		</ProgramKey>
+	</object>
+</BitMap>
