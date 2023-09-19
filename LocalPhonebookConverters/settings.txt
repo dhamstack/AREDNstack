@@ -1,9 +1,0 @@
-#Direct calling or PBX operation
-create_directory_direct=YES
-create_directory_pbx=YES
-
-#Which Brands of phones are used on your router
-create_yealink=YES
-create_cisco=NO
-create_noname=NO
-create_snom=NO
