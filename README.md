@@ -1,3 +1,6 @@
+Attention: The phonebook package no longer works with version 3.25.2 on the hap lite router because it is out of memory. It still works on the hap AC3 router.
+
+
 You find the documentation in the documentation folder (e.g. Installation of phonebook replication on hap router.pdf)
 
 
